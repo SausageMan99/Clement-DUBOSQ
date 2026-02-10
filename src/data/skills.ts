@@ -23,10 +23,14 @@ export const skills = [
   {
     category: { fr: "Tech & IA", en: "Tech & AI" },
     items: [
-      "IA appliquée (prompting avancé)",
-      "Intégration API",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Python",
       "Next.js",
       "Tailwind CSS",
+      "IA appliquée (prompting avancé)",
+      "Intégration API",
       "Vercel",
     ],
   },
