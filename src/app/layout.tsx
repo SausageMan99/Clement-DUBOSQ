@@ -1,40 +1,33 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Providers } from "./providers";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://clement-dubosq.com"),
-  title: "Clément Dubosq — Business Developer | Portfolio",
+  title: "Clément Dubosq — Alternance Business Development B2B Paris",
   description:
-    "Étudiant en Bachelor Responsable du Développement Commercial, entrepreneur et Business Developer passionné par la tech et l'IA. En recherche d'alternance.",
+    "Open Pipeline — dossier de prospection interactif de Clément Dubosq, candidat en alternance Business Development / Sales B2B à Paris dès septembre 2026.",
   keywords: [
     "Clément Dubosq",
-    "Business Developer",
-    "Portfolio",
-    "Alternance",
-    "Tech",
-    "IA",
-    "B2B Sales",
-    "Caen",
+    "Alternance Business Development",
+    "Sales B2B",
+    "Business Developer junior",
+    "Paris",
+    "Prospection B2B",
+    "IPAC Bachelor Factory",
   ],
   authors: [{ name: "Clément Dubosq" }],
   openGraph: {
-    title: "Clément Dubosq — Business Developer",
-    description: "Portfolio & CV en ligne",
+    title: "Clément Dubosq — Business Development B2B",
+    description: "Un dossier de prospection interactif pour comprendre comment Clément cible, contacte, qualifie et relance.",
     url: "https://clement-dubosq.com",
     type: "website",
+    locale: "fr_FR",
     images: ["/og-image.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Clément Dubosq — Business Developer",
-    description: "Portfolio & CV en ligne",
+    title: "Clément Dubosq — Business Development B2B",
+    description: "Open Pipeline — dossier interactif de prospection et qualification.",
     images: ["/og-image.png"],
   },
   alternates: {
@@ -45,16 +38,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  colorScheme: "light",
+  themeColor: "#f4efe4",
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`}>
-        <Providers>{children}</Providers>
-      </body>
+    <html lang="fr">
+      <body>{children}</body>
     </html>
   );
 }
