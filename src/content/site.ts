@@ -9,7 +9,7 @@ import type { T } from "@/lib/i18n";
 
 export const site = {
   name: "Clément Dubosq",
-  url: "https://clement-dubosq.com",
+  url: "https://www.clement-dubosq.com",
   email: "clement.dubosq@wanadoo.fr", // TODO(clement): switch to a pro address (e.g. hello@clement-dubosq.com)
   linkedin: "https://www.linkedin.com/in/clement-dubosq",
   cv: "/cv.pdf",
