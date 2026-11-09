@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LE FIL — moodboard v2 — clement-dubosq.com</title>
+<style>
+@font-face{font-family:"Archivo";src:url({{archivo-latin-wdth-normal.woff2}}) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"Reenie Beanie";src:url({{reenie-beanie-latin-400-normal.woff2}}) format("woff2");font-display:swap}
+@font-face{font-family:"Caveat";src:url({{caveat-latin-700-normal.woff2}}) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Courier Prime";src:url({{courier-prime-latin-400-normal.woff2}}) format("woff2");font-display:swap}
+:root{--blue:#1F3FD8;--blue-deep:#0B1A8C;--paper:#F2F1EC;--ink:#0E0E10;--grey:#8C8B86;--line:rgba(14,14,16,.14)}
+*{box-sizing:border-box}
+html{background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:"Archivo",system-ui,sans-serif;font-size:17px;line-height:1.45;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.x{font-stretch:62%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.84}
+.hand{font-family:"Reenie Beanie",cursive;color:var(--blue);font-size:34px;line-height:.95;font-weight:400}
+.typed{font-family:"Courier Prime",monospace}
+.lbl{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.wrap{width:min(1360px,calc(100% - 48px));margin:0 auto}
+.blue{color:var(--blue)}
+.scrib{position:absolute;pointer-events:none;overflow:visible}
+.scrib path{fill:none;stroke:var(--blue);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.draw path{stroke-dasharray:1 2;stroke-dashoffset:1;animation:draw 1.4s cubic-bezier(.6,.1,.3,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.tape{position:absolute;width:110px;height:30px;background:rgba(222,214,190,.78);box-shadow:0 1px 2px rgba(0,0,0,.08);z-index:3}
+.sticker{display:inline-flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--ink);padding:8px 14px 8px 10px;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;box-shadow:4px 4px 0 var(--ink)}
+.sticker i{width:10px;height:10px;border-radius:50%;background:var(--blue);display:block;animation:blink 1.2s steps(2) infinite}
+@keyframes blink{50%{opacity:.15}}
+.stamp{display:inline-block;border:3px solid var(--blue);color:var(--blue);padding:6px 12px;font-weight:900;font-stretch:75%;font-size:22px;letter-spacing:.06em;text-transform:uppercase;transform:rotate(-8deg);border-radius:4px;opacity:.88;mix-blend-mode:multiply}
+
+/* ---------- cover ---------- */
+.cover{background:var(--blue);color:var(--paper);min-height:100vh;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:22px 0 0}
+.cover .top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.cover .top .lbl{opacity:.85}
+.cover h1{font-size:clamp(220px,40vw,640px);margin:0 0 -0.16em -0.03em;white-space:nowrap;color:var(--paper)}
+.cover .note{position:absolute;right:6vw;top:24vh;color:var(--paper);transform:rotate(-6deg);font-size:46px;max-width:430px}
+.cover .note2{position:absolute;left:5vw;top:30vh;max-width:420px;font-size:20px;line-height:1.35;font-weight:500}
+.cover .sticker{position:absolute;right:8vw;top:55vh;transform:rotate(4deg);color:var(--ink)}
+
+/* ---------- section scaffolding ---------- */
+section{position:relative}
+.sec{padding:120px 0}
+.head{display:grid;grid-template-columns:120px 1fr;gap:24px;margin-bottom:64px;align-items:end}
+.head .n{font-size:120px;color:var(--blue)}
+.head h2{font-size:clamp(64px,9vw,150px);margin:0}
+.head p{font-size:21px;max-width:58ch;margin:18px 0 0;font-weight:450}
+@media(max-width:800px){.head{grid-template-columns:1fr}.head .n{font-size:64px}}
+.rule{border:0;border-top:2px solid var(--ink);margin:0}
+
+/* ---------- refs ---------- */
+.ref{display:grid;grid-template-columns:1.45fr 1fr;gap:40px;padding:56px 0;border-top:2px solid var(--ink)}
+.ref:first-of-type{border-top:0}
+.ref .shots{position:relative}
+.ref .main{position:relative;border:2px solid var(--ink);background:#fff}
+.ref .thumb{position:absolute;right:-26px;bottom:-34px;width:42%;border:2px solid var(--ink);transform:rotate(3deg);box-shadow:8px 8px 0 var(--blue);background:#fff}
+.pin{position:absolute;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:900;font-size:16px;border:2px solid #fff;box-shadow:0 0 0 2px var(--blue);z-index:2}
+.ref h3{font-size:clamp(56px,6vw,96px);margin:0}
+.ref .who{margin:8px 0 22px;color:#444;font-size:16px}
+.ref ol{list-style:none;padding:0;margin:0;counter-reset:r}
+.ref li{counter-increment:r;display:grid;grid-template-columns:42px 1fr;gap:8px;padding:12px 0;border-top:1px solid var(--line)}
+.ref li:before{content:counter(r);width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:900;font-size:14px}
+.ref li b{display:block;font-size:17px}
+.ref li span{font-size:15.5px;color:#333}
+.ref .steal{margin-top:20px;background:var(--ink);color:var(--paper);padding:16px 18px;font-size:16px}
+.ref .steal .hand{color:#9DB0FF;font-size:30px;display:block;margin-bottom:2px}
+.ref .steal s{opacity:.6}
+.blocked{border:2px dashed var(--ink);min-height:320px;display:grid;place-items:center;text-align:center;padding:30px;background:repeating-linear-gradient(-45deg,transparent 0 14px,rgba(31,63,216,.06) 14px 28px)}
+@media(max-width:900px){.ref{grid-template-columns:1fr}.ref .thumb{right:-8px}}
+
+/* ---------- v1 vs refs ---------- */
+.versus{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--ink)}
+.versus>div{padding:28px;position:relative}
+.versus>div+div{border-left:2px solid var(--ink)}
+.versus .mine img{filter:grayscale(1) contrast(.9);opacity:.75;border:1px solid var(--line)}
+.versus .x2{position:absolute;inset:60px 40px auto 40px;height:62%}
+.versus table{width:100%;border-collapse:collapse;font-size:15.5px;margin-top:18px}
+.versus td{padding:9px 0;border-top:1px solid var(--line);vertical-align:top}
+.versus td:first-child{font-weight:700;width:34%}
+@media(max-width:900px){.versus{grid-template-columns:1fr}.versus>div+div{border-left:0;border-top:2px solid var(--ink)}}
+
+/* ---------- rules ---------- */
+.rules{background:var(--ink);color:var(--paper)}
+.rules .head .n{color:#7F95FF}
+.rulelist{list-style:none;margin:0;padding:0;counter-reset:k}
+.rulelist li{counter-increment:k;display:grid;grid-template-columns:140px 1.1fr 1fr;gap:28px;padding:26px 0;border-top:1px solid rgba(242,241,236,.2);align-items:baseline}
+.rulelist li:before{content:"0" counter(k);font-weight:900;font-stretch:62%;font-size:84px;line-height:.8;color:var(--blue);-webkit-text-stroke:1px #7F95FF;color:transparent}
+.rulelist b{font-size:clamp(40px,4.4vw,72px);font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.88}
+.rulelist p{margin:0;font-size:17px;color:rgba(242,241,236,.8)}
+.rulelist p em{font-style:normal;color:#9DB0FF}
+@media(max-width:900px){.rulelist li{grid-template-columns:1fr;gap:8px}}
+
+/* ---------- concept ---------- */
+.concept{background:var(--blue);color:var(--paper);overflow:hidden}
+.concept .big{font-size:clamp(150px,26vw,420px);margin:0;white-space:nowrap}
+.concept .why{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--paper);margin-top:40px}
+.concept .why div{padding:26px 24px 10px 0}
+.concept .why div+div{padding-left:24px;border-left:2px solid var(--paper)}
+.concept .why b{display:block;font-size:44px;font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.9;margin-bottom:12px}
+.concept .why p{margin:0;font-size:17px}
+.concept .pitch{font-size:clamp(26px,2.6vw,40px);line-height:1.15;font-weight:600;max-width:24ch;margin:0}
+.concept .hand{color:var(--paper)}
+@media(max-width:900px){.concept .why{grid-template-columns:1fr}.concept .why div+div{border-left:0;padding-left:0;border-top:2px solid var(--paper)}}
+
+/* ---------- frames ---------- */
+.flabel{display:flex;justify-content:space-between;align-items:baseline;margin:80px 0 14px;gap:16px}
+.flabel .x{font-size:40px}
+.frame{border:2px solid var(--ink);background:var(--paper);position:relative;overflow:hidden;box-shadow:14px 14px 0 var(--ink)}
+.chrome{height:34px;border-bottom:2px solid var(--ink);display:flex;align-items:center;gap:8px;padding:0 12px;background:#fff}
+.chrome i{width:11px;height:11px;border-radius:50%;border:2px solid var(--ink)}
+.chrome span{margin-left:10px;font-size:12px;font-weight:600}
+
+/* F1 hero */
+.f1{height:860px;position:relative;overflow:hidden}
+.f1 nav{position:absolute;inset:18px 26px auto 26px;display:flex;justify-content:space-between;align-items:center;z-index:6}
+.f1 nav .sig{font-family:"Caveat";font-size:34px;color:var(--blue);line-height:1}
+.f1 nav .links{display:flex;gap:26px;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.03em}
+.f1 nav .call{background:var(--blue);color:#fff;padding:12px 18px;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.03em;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.f1 .name{position:absolute;left:-10px;bottom:-52px;font-size:392px;color:var(--blue);margin:0;white-space:nowrap;z-index:1}
+.f1 .photo{position:absolute;left:50%;top:92px;width:350px;transform:translateX(-30%) rotate(-3deg);border:10px solid #fff;box-shadow:0 18px 40px rgba(0,0,0,.18);z-index:4;background:#fff}
+.f1 .photo .tape{top:-16px;left:110px;transform:rotate(4deg)}
+.f1 .tag{position:absolute;left:26px;top:120px;max-width:420px;z-index:5}
+.f1 .tag h2{font-size:94px;margin:0 0 18px}
+.f1 .tag p{font-size:19px;font-weight:500;margin:0 0 20px;max-width:34ch}
+.f1 .sticker{position:absolute;right:30px;top:170px;transform:rotate(5deg);z-index:6}
+.f1 .h1{position:absolute;right:70px;top:330px;transform:rotate(-7deg);z-index:6;font-size:40px;max-width:260px}
+.f1 .h2{position:absolute;left:300px;top:78px;transform:rotate(-4deg);z-index:6;font-size:34px}
+.f1 .thread{position:absolute;inset:0;z-index:5}
+.f1 .thread{pointer-events:none}.f1 .thread path{fill:none;stroke:var(--blue);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.f1 .scroll{position:absolute;right:30px;bottom:26px;z-index:6;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:#fff;mix-blend-mode:difference}
+
+/* F2 manifesto */
+.f2{background:var(--blue);color:var(--paper);padding:90px 60px;position:relative}
+.f2 p{font-size:clamp(48px,6.4vw,104px);margin:0;max-width:19ch;line-height:.94}
+.f2 .u{background:var(--paper);color:var(--blue);padding:0 .08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.f2 .hand{color:#fff;position:absolute;right:70px;bottom:70px;font-size:44px;transform:rotate(-5deg);max-width:320px}
+
+/* F3 proofs */
+.f3{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink)}
+.f3 div{padding:34px 26px 40px;position:relative;border-right:2px solid var(--ink)}
+.f3 div:last-child{border-right:0}
+.f3 b{display:block;font-size:150px;color:var(--blue);margin-bottom:8px}
+.f3 span{font-size:16px;font-weight:600;display:block;max-width:22ch}
+.f3 .hand{display:block;margin-top:12px;font-size:30px;transform:rotate(-3deg);transform-origin:left}
+@media(max-width:1000px){.f3{grid-template-columns:1fr 1fr}.f3 b{font-size:110px}}
+
+/* F4 work orders */
+.f4{padding:60px 50px 70px;background:#E7E5DE;display:grid;grid-template-columns:repeat(3,1fr);gap:34px;align-items:start}
+.bon{background:#fff;border:2px solid var(--ink);padding:0;position:relative;box-shadow:6px 6px 0 rgba(14,14,16,.9)}
+.bon:nth-child(1){transform:rotate(-1.5deg)}.bon:nth-child(2){transform:rotate(1deg) translateY(30px)}.bon:nth-child(3){transform:rotate(-.6deg)}
+.bon header{display:flex;justify-content:space-between;align-items:center;background:var(--blue);color:#fff;padding:10px 14px}
+.bon header .x{font-size:30px}
+.bon header .typed{font-size:14px}
+.bon dl{margin:0;padding:6px 14px 16px}
+.bon dt{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#666;margin-top:12px}
+.bon dd{margin:2px 0 0;font-family:"Courier Prime",monospace;font-size:15.5px;line-height:1.35;border-bottom:1px dotted #999;padding-bottom:6px}
+.bon .stamp{position:absolute;right:-18px;top:44px;background:rgba(255,255,255,.55)}
+.bon footer{border-top:2px solid var(--ink);padding:10px 14px;display:flex;justify-content:space-between;font-weight:700;font-size:13px;text-transform:uppercase}
+@media(max-width:1000px){.f4{grid-template-columns:1fr}.bon:nth-child(2){transform:none}}
+
+/* F5 notes */
+.f5{display:grid;grid-template-columns:.9fr 1.1fr;min-height:640px}
+.f5 .l{padding:50px;border-right:2px solid var(--ink);position:relative}
+.f5 .l h2{font-size:150px;margin:0;color:var(--blue)}
+.f5 .l p{font-size:19px;max-width:30ch;font-weight:500}
+.f5 .r{padding:40px 50px}
+.erow{display:grid;grid-template-columns:70px 1fr 80px;gap:18px;padding:18px 0;border-bottom:2px solid var(--ink);align-items:baseline;transition:background .2s,padding .25s;cursor:default}
+.erow:first-child{border-top:2px solid var(--ink)}
+.erow .num{font-family:"Caveat";font-size:40px;color:var(--blue);line-height:.8}
+.erow .t{font-size:44px;font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.9}
+.erow .m{font-size:13px;font-weight:600;text-align:right}
+.erow:hover{background:var(--blue);color:#fff;padding-left:14px}
+.erow:hover .num{color:#fff}
+@media(max-width:1000px){.f5{grid-template-columns:1fr}.f5 .l{border-right:0;border-bottom:2px solid var(--ink)}}
+
+/* F5b essay */
+.f5b{display:grid;grid-template-columns:1fr 680px 1fr;padding:70px 30px 90px}
+.f5b article{grid-column:2}
+.f5b .k{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.f5b h2{font-size:104px;margin:16px 0 26px}
+.f5b .art p{font-size:20px;line-height:1.62;margin:0 0 22px;font-weight:420}
+.f5b .art h3{font-size:30px;font-weight:900;font-stretch:62%;text-transform:uppercase;margin:36px 0 10px;color:var(--blue)}
+.f5b .marg{position:relative}
+.f5b .marg .hand{position:absolute;right:-230px;top:0;width:200px;font-size:28px;transform:rotate(-3deg)}
+.f5b mark{background:linear-gradient(transparent 55%,rgba(31,63,216,.25) 55%);color:inherit}
+@media(max-width:1100px){.f5b{grid-template-columns:1fr}.f5b article{grid-column:1}.f5b .marg .hand{position:static;display:block;margin-top:6px}.f5b h2{font-size:64px}}
+
+/* F6 faq */
+.f6{padding:60px 50px 70px}
+.f6 h2{font-size:150px;margin:0 0 40px;color:var(--blue)}
+.qa{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 40px}
+.qa div{border-top:2px solid var(--ink);padding-top:12px}
+.qa b{display:block;font-size:30px;font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.92;margin-bottom:8px}
+.qa p{margin:0;font-size:16.5px}
+@media(max-width:1000px){.f6{grid-template-columns:1fr}.qa{grid-template-columns:1fr}.f6 h2{font-size:110px}}
+
+/* F7 contact */
+.f7{background:var(--blue);color:var(--paper);padding:60px 50px 30px;position:relative;overflow:hidden;min-height:620px;display:flex;flex-direction:column;justify-content:space-between}
+.f7 h2{font-size:clamp(100px,15vw,250px);margin:0;white-space:nowrap}
+.f7 .row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:20px}
+.f7 .btn{background:var(--paper);color:var(--ink);border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:16px 22px;font-weight:900;text-transform:uppercase;font-size:16px;text-decoration:none}
+.f7 .btn.o{background:transparent;color:var(--paper);border-color:var(--paper);box-shadow:none}
+.f7 .foot{display:flex;justify-content:space-between;align-items:flex-end;border-top:2px solid var(--paper);padding-top:14px;margin-top:40px}
+.f7 .foot .sig{font-family:"Caveat";font-size:58px;line-height:.8}
+.f7 .hand{color:#fff;align-self:flex-end;font-size:40px;transform:rotate(-4deg);max-width:420px;text-align:right;margin-bottom:10px}
+
+/* phones */
+.phones{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:20px}
+.ph{border:2px solid var(--ink);border-radius:38px;background:var(--ink);padding:9px;max-width:330px;margin:0 auto;width:100%;box-shadow:10px 10px 0 var(--blue)}
+.ph .s{border-radius:30px;overflow:hidden;height:640px;background:var(--paper);position:relative}
+@media(max-width:1000px){.phones{grid-template-columns:1fr}}
+.m1 .nm{position:absolute;inset:16px 16px auto;display:flex;justify-content:space-between;align-items:center;z-index:5}
+.m1 .nm .sig{font-family:"Caveat";color:var(--blue);font-size:28px}
+.m1 .nm .call{background:var(--blue);color:#fff;font-weight:800;font-size:11px;padding:8px 10px;border:2px solid var(--ink);text-transform:uppercase}
+.m1 h2{position:absolute;left:16px;top:62px;font-size:56px;margin:0;z-index:4}
+.m1 .photo{position:absolute;left:52px;top:272px;width:210px;border:7px solid #fff;transform:rotate(-3deg);box-shadow:0 10px 24px rgba(0,0,0,.18);z-index:3}
+.m1 .name{position:absolute;left:-6px;bottom:-26px;font-size:190px;color:var(--blue);margin:0;z-index:1;white-space:nowrap}
+.m1 .sticker{position:absolute;left:14px;top:228px;font-size:10px;padding:6px 10px 6px 8px;z-index:6;transform:rotate(-2deg)}
+.m1 .hand{position:absolute;right:12px;top:300px;font-size:28px;transform:rotate(8deg);z-index:6;width:90px}
+
+/* scroll demo */
+.demo{height:300vh;background:var(--paper)}
+.demo .stick{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.demo svg.path{position:absolute;inset:0;width:100%;height:100%}
+.demo svg.path path{stroke-dasharray:1 2;fill:none;stroke:var(--blue);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.node{position:absolute;transform:translate(-50%,-50%);text-align:center;transition:transform .3s}
+.node .dot{width:26px;height:26px;border-radius:50%;border:3px solid var(--blue);background:var(--paper);margin:0 auto 10px;transition:background .25s}
+.node.on .dot{background:var(--blue)}
+.node b{display:block;font-size:34px;font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.9;opacity:.25;transition:opacity .3s}
+.node.on b{opacity:1}
+.node .hand{font-size:26px;opacity:0;transition:opacity .3s;display:block;margin-top:4px}
+.node.on .hand{opacity:1}
+.demo .cap{position:absolute;left:24px;top:24px;max-width:520px}
+.demo .cap h3{font-size:72px;margin:0}
+.demo .cap p{font-size:17px;max-width:46ch}
+.demo .pct{position:absolute;right:24px;bottom:24px;font-weight:900;font-stretch:62%;font-size:80px;color:var(--blue)}
+
+/* system */
+.sw{display:grid;grid-template-columns:2fr 1.3fr 1fr;height:300px;border:2px solid var(--ink)}
+.sw div{padding:18px;display:flex;flex-direction:column;justify-content:space-between}
+.sw b{font-size:52px;font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.9}
+.sw span{font-size:14px;font-weight:600}
+.typo{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink);border-top:0}
+.typo>div{padding:22px;border-right:2px solid var(--ink)}
+.typo>div:last-child{border-right:0}
+.typo p b{display:block;margin-bottom:4px}
+.typo .s{font-size:110px;line-height:.85;margin-bottom:12px}
+.typo p{margin:0;font-size:14.5px}
+.tex{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+.tex figure{margin:0}
+.tex .t{height:260px;border:2px solid var(--ink);position:relative;overflow:hidden;background:#fff;display:grid;place-items:center}
+.tex figcaption{margin-top:10px;font-size:15px}
+.tex figcaption b{display:block;font-size:22px;font-weight:900;font-stretch:62%;text-transform:uppercase}
+@media(max-width:1000px){.typo,.tex{grid-template-columns:1fr 1fr}.sw{grid-template-columns:1fr;height:auto}.sw div{min-height:140px}}
+
+.motion{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--ink);margin-top:40px}
+.motion div{padding:22px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.motion div:nth-child(3n){border-right:0}
+.motion b{display:block;font-size:30px;font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.92;margin-bottom:6px}
+.motion p{margin:0;font-size:15.5px}
+.motion .no b{color:var(--blue);text-decoration:line-through}
+@media(max-width:900px){.motion{grid-template-columns:1fr}.motion div{border-right:0}}
+
+/* todo */
+.todo{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.todo ul{list-style:none;padding:0;margin:0}
+.todo li{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:14px 0;border-top:2px solid var(--ink);font-size:17px}
+.todo li:before{content:"";width:22px;height:22px;border:2px solid var(--ink);margin-top:2px}
+.todo li b{display:block}
+.todo h3{font-size:60px;margin:0 0 18px}
+@media(max-width:900px){.todo{grid-template-columns:1fr}}
+.end{background:var(--ink);color:var(--paper);padding:90px 0 60px}
+.end h2{font-size:clamp(90px,14vw,220px);margin:0}
+.end ol{font-size:19px;max-width:70ch;padding-left:24px}
+.end li{margin:10px 0}
+.end .hand{color:#9DB0FF}
+@media(max-width:700px){
+  .wrap{width:calc(100% - 28px)}
+  .sec{padding:72px 0}
+  .head h2{font-size:58px}.head p{font-size:17px}
+  .ref h3{font-size:52px}
+  .typo,.tex{grid-template-columns:1fr}.typo>div{border-right:0;border-bottom:2px solid var(--ink)}.typo .s{font-size:72px}
+  .versus .x2{display:none}
+  .rulelist li:before{font-size:56px}
+  .flabel{flex-direction:column}.flabel .x{font-size:30px}
+  .frame{box-shadow:6px 6px 0 var(--ink)}
+  .f1{height:640px}.f1 nav{inset:12px 12px auto 12px}.f1 nav .links{display:none}.f1 nav .sig{font-size:26px}.f1 nav .call{font-size:11px;padding:8px 10px}.f1 .tag h2{font-size:56px}.f1 .tag{top:72px;left:16px;right:16px}.f1 .tag p{font-size:15px}
+  .f1 .photo{width:190px;top:330px;left:44%}.f1 .name{font-size:150px;bottom:-22px}.f1 .sticker{top:auto;bottom:170px;left:12px;right:auto;font-size:10px}.f1 .h1,.f1 .h2{display:none}
+  .f2{padding:50px 22px}.f2 .hand{position:static;display:block;margin-top:24px}
+  .f3{grid-template-columns:1fr}.f3 div{border-right:0;border-bottom:2px solid var(--ink)}
+  .f4{padding:30px 16px}
+  .f5 .l,.f5 .r{padding:26px 18px}.f5 .l h2{font-size:84px}.erow{grid-template-columns:44px 1fr}.erow .m{display:none}.erow .t{font-size:30px}
+  .f6{padding:30px 18px}.f6 h2{font-size:72px}.qa{grid-template-columns:1fr}
+  .f7{padding:30px 18px;min-height:480px}.f7 h2{font-size:84px;white-space:normal}.f7 .hand{position:static;display:block}.f7 .scrib{display:none}
+  .demo .cap h3{font-size:44px}.demo .cap p{font-size:14px}.node b{font-size:20px}.node .hand{font-size:18px}
+  .cover h1{font-size:44vw}.cover .note{right:4vw;top:16vh;font-size:34px;max-width:70vw}.cover .note2{top:34vh}.cover .sticker{top:52vh}
+  .concept .big{font-size:40vw}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.draw path{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<header class="cover">
+  <div class="wrap top"><span class="lbl">clement-dubosq.com — moodboard v2</span><span class="lbl">09.11.2026</span></div>
+  <p class="note2">La v1 était propre et sans saveur. Celle-ci part de tes 4 références et d’une seule idée.</p>
+  <div class="hand note">on recommence. pour de vrai cette fois →</div>
+  <span class="sticker"><i></i>Direction : « Le Fil »</span>
+  <h1 class="x">Le fil.</h1>
+</header>
+
+<!-- 01 REFS -->
+<section class="sec" id="refs"><div class="wrap">
+  <div class="head"><span class="x n">01</span><div><h2 class="x">Tes références,<br><span class="blue">décortiquées.</span></h2><p>J’ai ouvert et capturé 3 des 4 sites que tu as choisis. Pour chacun : ce qui le rend mémorable, ce qu’on peut voler (le principe) et ce qu’on ne copie pas (le look).</p></div></div>
+
+  <article class="ref">
+    <div class="shots">
+      <div class="main"><img src="{{ruthi-hero.jpg}}" alt="worksruthi.com, hero"><span class="pin" style="left:22%;top:38%">1</span><span class="pin" style="left:52%;top:30%">2</span><span class="pin" style="left:68%;top:80%">3</span></div>
+      <img class="thumb" src="{{ruthi-faq.jpg}}" alt="worksruthi.com, FAQ">
+    </div>
+    <div>
+      <h3 class="x">Sruthi</h3>
+      <p class="who">worksruthi.com · copywriter / marketeuse · nominée Awwwards. <b>C’est la plus proche de ton profil :</b> une commerciale du marketing, pas une designeuse.</p>
+      <ol>
+        <li><div><b>La personne est le décor</b><span>Une vraie photo d’elle, détourée, gribouillée au feutre rouge. On la connaît avant d’avoir lu une ligne.</span></div></li>
+        <li><div><b>La blague de la personnalisation</b><span><code>{{ first name }}</code> dans le hero : un clin d’œil à l’emailing, son métier. Le site parle le langage du job.</span></div></li>
+        <li><div><b>Une voix qui ose</b><span>« I’m your person to get sh*t done », une FAQ « Who should NOT hire you? ». Ça trie les recruteurs, et c’est voulu.</span></div></li>
+      </ol>
+      <div class="steal"><span class="hand">on vole :</span>la couche faite main, l’auto-dérision, la FAQ honnête. <s>On ne copie pas</s> le rouge, Impact ni les collages vintage.</div>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="shots">
+      <div class="main"><img src="{{eff-hero.jpg}}" alt="effepinnastudio.com, hero"><span class="pin" style="left:49%;top:40%">1</span><span class="pin" style="left:8%;top:84%">2</span><span class="pin" style="left:7%;top:13%">3</span></div>
+      <img class="thumb" src="{{eff-ribbon.jpg}}" alt="effepinnastudio.com, ruban 3D">
+    </div>
+    <div>
+      <h3 class="x">Effepinna</h3>
+      <p class="who">effepinnastudio.com · Fabio Pinna, DA · nominé Awwwards · GSAP + ScrollTrigger, une seule police (Instrument Sans).</p>
+      <ol>
+        <li><div><b>Un avatar 3D de lui-même</b><span>Il est debout dans le hero et se met à danser dans le footer. Le site est littéralement habité.</span></div></li>
+        <li><div><b>Le nom en géant, coupé</b><span>« effepinna » dépasse du cadre en bas de page. Une seule couleur (#EE2C3D) sur blanc, rien d’autre.</span></div></li>
+        <li><div><b>Une signature manuscrite comme logo</b><span>Plus un ruban 3D qui traverse la page au scroll. C’est son geste.</span></div></li>
+      </ol>
+      <div class="steal"><span class="hand">on vole :</span>le site habité par la personne, une seule couleur à 100 %, un trait qui traverse la page. <s>On ne copie pas</s> l’avatar 3D ni le rouge.</div>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="shots">
+      <div class="main"><img src="{{lando-type.jpg}}" alt="landonorris.com, manifeste"><span class="pin" style="left:30%;top:62%">1</span><span class="pin" style="left:80%;top:22%">2</span></div>
+      <img class="thumb" src="{{lando-collage.jpg}}" alt="landonorris.com, collage photo">
+    </div>
+    <div>
+      <h3 class="x">Lando Norris</h3>
+      <p class="who">landonorris.com · agence OFF+BRAND · Webflow + Lenis + WebGL · polices Brier (serif) + Mona Sans.</p>
+      <ol>
+        <li><div><b>Une couleur qui EST la marque</b><span>Le jaune fluo de son casque, partout, sur un vert olive très sombre. On reconnaît le site en une demi-seconde.</span></div></li>
+        <li><div><b>Un motif tiré de sa vie</b><span>Les lignes topographiques en fond, c’est le tracé d’un circuit. Rien n’est décoratif, tout vient de son monde.</span></div></li>
+        <li><div><b>Des photos datées, en vrac</b><span>« Monaco, 2024 », « Barcelona, 2024 » : un album, pas une galerie. Plus sa signature manuscrite.</span></div></li>
+      </ol>
+      <div class="steal"><span class="hand">on vole :</span>la couleur-identité, le motif tiré de ta vie, les vraies photos légendées. <s>On ne copie pas</s> le fluo, la F1 ni les casques.</div>
+    </div>
+  </article>
+
+  <article class="ref">
+    <div class="shots"><div class="blocked"><div><span class="x" style="font-size:64px">La Magadán</span><p style="max-width:40ch;margin:14px auto 0">lamagadan.studio refuse les connexions depuis mon serveur (même blocage qu’awwwards.com). D’après Awwwards, c’est le site d’illustration de Cristina Magadán.</p><p class="hand" style="margin-top:14px">envoie-moi 1–2 captures et je l’intègre !</p></div></div></div>
+    <div>
+      <h3 class="x">Lamagadan</h3>
+      <p class="who">Nominée Awwwards · illustration. À confirmer en voyant le site.</p>
+      <p style="font-size:17px">En attendant, ton choix va dans le même sens que les trois autres : du <b>fait main</b>, du <b>dessin</b>, quelqu’un derrière l’écran.</p>
+    </div>
+  </article>
+</div></section>
+
+<!-- 02 V1 VS REFS -->
+<section class="sec" style="padding-top:40px"><div class="wrap">
+  <div class="head"><span class="x n">02</span><div><h2 class="x">Pourquoi la v1<br><span class="blue">était fade.</span></h2></div></div>
+  <div class="versus">
+    <div class="mine"><span class="lbl">Mon moodboard v1</span><div style="position:relative;margin-top:12px"><img src="{{mine-v1.jpg}}" alt="Moodboard v1"><svg class="scrib" viewBox="0 0 300 200" preserveAspectRatio="none" style="inset:0;width:100%;height:100%"><path d="M10,12 C90,70 200,140 292,190 M290,10 C200,80 100,140 8,192" style="stroke-width:5"/></svg></div>
+      <table><tr><td>La personne</td><td>Une petite photo, recadrée sagement</td></tr><tr><td>La couleur</td><td>Crème + orange à « 5 % » : la palette IA par défaut</td></tr><tr><td>La typo</td><td>Instrument Serif + mono : vue 10 000 fois en 2026</td></tr><tr><td>La voix</td><td>Polie, neutre, interchangeable</td></tr><tr><td>Le geste</td><td>Des liens soulignés. C’est tout.</td></tr></table>
+    </div>
+    <div><span class="lbl">Tes 4 références</span><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px"><img src="{{ruthi-work.jpg}}" alt="" style="border:1px solid var(--ink)"><img src="{{lando-helmets.jpg}}" alt="" style="border:1px solid var(--ink)"><img src="{{eff-foot.jpg}}" alt="" style="border:1px solid var(--ink)"><img src="{{lando-foot.jpg}}" alt="" style="border:1px solid var(--ink)"></div>
+      <table><tr><td>La personne</td><td>Partout : photo détourée, avatar 3D, casque</td></tr><tr><td>La couleur</td><td>Une seule, à 100 % : rouge, rouge, fluo</td></tr><tr><td>La typo</td><td>Énorme, coupée, condensée. Une famille, assumée.</td></tr><tr><td>La voix</td><td>Drôle, cash, avec des opinions</td></tr><tr><td>Le geste</td><td>Gribouillis, ruban 3D, casques à collectionner</td></tr></table>
+    </div>
+  </div>
+</div></section>
+
+<!-- 03 RULES -->
+<section class="sec rules"><div class="wrap">
+  <div class="head"><span class="x n">03</span><div><h2 class="x">5 règles,<br>tirées d’eux.</h2></div></div>
+  <ol class="rulelist">
+    <li><b>Tu es le héros du site.</b><p>Pas une photo dans un coin : ta tête, tes mains, ton écriture, partout. <em>Ruthi, Effepinna et Lando le font tous les trois.</em></p></li>
+    <li><b>Une couleur. À 100 %.</b><p>Pas une palette avec un accent : une couleur qui devient ta marque, qu’on reconnaît sans lire ton nom.</p></li>
+    <li><b>Une couche faite main.</b><p>Gribouillis, signature, tampons, scotch. C’est l’antidote direct à « ça fait IA » : <em>une machine ne fait pas tes ratures.</em></p></li>
+    <li><b>Une voix qui trie.</b><p>Des phrases que tout le monde n’aimera pas. Un recruteur qui sourit se souvient de toi ; un recruteur que tu agaces n’était pas le bon.</p></li>
+    <li><b>Un motif qui n’est qu’à toi.</b><p>Lando a son circuit, Fabio son ruban. Il te faut un geste tiré de ta vie, que personne d’autre ne peut porter.</p></li>
+  </ol>
+</div></section>
+
+<!-- 04 CONCEPT -->
+<section class="sec concept"><div class="wrap">
+  <span class="lbl">04 — Le concept</span>
+  <p class="x big">Le fil.</p>
+  <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end">
+    <p class="pitch">Un trait bleu, dessiné à la main, traverse tout le site. Il entoure tes chiffres, relie tes expériences et finit noué autour du bouton « On s’appelle ? ».</p>
+    <p class="hand" style="font-size:40px;transform:rotate(-3deg)">parce que mon métier, c’est de ne jamais lâcher le fil d’une conversation.</p>
+  </div>
+  <div class="why">
+    <div><b>Ton métier</b><p>Le BD, c’est la relance : garder le fil d’une conversation pendant des semaines sans jamais le perdre. Le motif dit ton métier sans un mot de jargon.</p></div>
+    <div><b>Ton passé</b><p>Bac pro maintenance industrielle : le bleu de chauffe, les plans en cyanotype, les <i>bons d’intervention</i>. Tes études de cas deviennent des fiches d’intervention : panne, diagnostic, résultat.</p></div>
+    <div><b>Ta main</b><p>Le trait, les annotations et la signature sont <u>vraiment</u> de ta main : on scanne ton écriture. Aucun template ne peut te copier ça.</p></div>
+  </div>
+</div></section>
+
+<!-- 05 FRAMES -->
+<section class="sec" style="padding-top:60px"><div class="wrap">
+  <div class="head" style="margin-bottom:0"><span class="x n">05</span><div><h2 class="x">À quoi ça<br><span class="blue">ressemble.</span></h2><p>Ce sont des frames de direction. <b>Les chiffres viennent de ton CV ; tout le reste (citations, annotations, réponses de la FAQ, détails des bons) est inventé pour la maquette</b>, à réécrire avec ta voix et tes vrais faits. Ton écriture est simulée par une police manuscrite en attendant le scan de la vraie.</p></div></div>
+
+  <div class="flabel"><span class="x">Frame 1 — Hero</span><span class="lbl">desktop 1440</span></div>
+  <div class="frame"><div class="chrome"><i></i><i></i><i></i><span>clement-dubosq.com</span></div>
+    <div class="f1">
+      <nav><span class="sig">Clément Dubosq</span><span class="links"><span>Interventions</span><span>Notes de terrain</span><span>Avant que vous demandiez</span></span><span class="call">On s’appelle ?</span></nav>
+      <div class="tag"><h2 class="x">Je ne lâche<br>pas le <span class="blue">fil.</span></h2><p>Business developer en alternance. 8 clients B2B signés seul avec WebVision, avant même d’avoir un diplôme.</p></div>
+      <span class="hand h2">↓ moi, avant le café</span>
+      <figure class="photo" style="margin:0"><span class="tape"></span><img src="{{cyano.jpg}}" alt="Clément, rendu cyanotype"></figure>
+      <span class="sticker"><i></i>En recherche · alternance BD · Paris</span>
+      <span class="hand h1">je réponds en moins de 24 h. promis.</span>
+      <svg class="thread draw" viewBox="0 0 1400 860" preserveAspectRatio="none"><path pathLength="1" d="M300,250 C 360,236 420,262 470,250 C 600,220 640,170 700,180 C 860,205 1000,120 1100,150 C 1180,172 1260,120 1300,160 C 1350,210 1240,260 1180,235 C 1120,210 1190,170 1240,190 C 1330,230 1300,420 1150,470 C 980,525 1060,700 1380,740"/></svg>
+      <p class="x name">Clément</p>
+      <span class="scroll">Tirez le fil ↓</span>
+    </div>
+  </div>
+
+  <div class="flabel"><span class="x">Frame 2 — Manifeste</span><span class="lbl">plein bleu, texte qui se révèle au scroll</span></div>
+  <div class="frame"><div class="f2">
+    <p class="x">Un client ne se signe pas au premier message. Il se signe à la <span class="u">cinquième relance</span>, si elle apporte quelque chose.</p>
+    <span class="hand">la 4e, c’était un article utile sur leur secteur.</span>
+  </div></div>
+
+  <div class="flabel"><span class="x">Frame 3 — Preuves</span><span class="lbl">chiffres géants, entourés à la main</span></div>
+  <div class="frame"><div class="f3">
+    <div><b class="x" style="position:relative;display:inline-block">8<svg class="scrib" viewBox="0 0 200 120" preserveAspectRatio="none" style="left:-40px;top:-14px;width:150px;height:150px"><path d="M60,15 C10,25 5,100 70,110 C140,118 190,70 160,30 C135,0 70,5 40,30"/></svg></b><span>clients B2B signés seul, sans réseau ni portefeuille de départ</span><span class="hand">tous en prospection directe</span></div>
+    <div><b class="x">12k€</b><span>de CA en moins d’un an avec WebVision</span></div>
+    <div><b class="x">95%</b><span>de satisfaction sur 50 clients suivis chez Atlas Avocat</span><span class="hand">mesuré par le cabinet, pas par moi</span></div>
+    <div><b class="x">860</b><span>au TOEIC : je prospecte aussi en anglais</span></div>
+  </div></div>
+
+  <div class="flabel"><span class="x">Frame 4 — Interventions</span><span class="lbl">tes études de cas = des bons d’intervention</span></div>
+  <div class="frame"><div class="f4">
+    <div class="bon"><header><span class="x">WebVision</span><span class="typed">BON N° 001</span></header><dl><dt>Client</dt><dd>PME et indépendants (8)</dd><dt>Panne constatée</dt><dd>« On n’a pas le temps de faire des vidéos. »</dd><dt>Diagnostic</dt><dd>Pas un problème de temps : un problème de visibilité sur les réseaux.</dd><dt>Intervention</dt><dd>Prospection directe, devis en 48 h, tournage et suivi mensuel.</dd><dt>Résultat</dt><dd>+12 000 € de CA en moins d’un an.</dd></dl><span class="stamp">Terminé</span><footer><span>2023 → auj.</span><span>Lire →</span></footer></div>
+    <div class="bon"><header><span class="x">Atlas Avocat</span><span class="typed">BON N° 002</span></header><dl><dt>Client</dt><dd>Cabinet d’avocats, 50 dossiers clients</dd><dt>Panne constatée</dt><dd>Leads entrants peu qualifiés, dossiers lents.</dd><dt>Diagnostic</dt><dd>Process de traitement trop manuel.</dd><dt>Intervention</dt><dd>Acquisition digitale et optimisation des process internes.</dd><dt>Résultat</dt><dd>+40 % de leads qualifiés, -25 % de temps de traitement.</dd></dl><span class="stamp">Terminé</span><footer><span>2022 → 2024</span><span>Lire →</span></footer></div>
+    <div class="bon"><header><span class="x">Wav’Arts</span><span class="typed">BON N° 003</span></header><dl><dt>Client</dt><dd>Association culturelle locale</dd><dt>Panne constatée</dt><dd>Les adhésions stagnent.</dd><dt>Diagnostic</dt><dd>Personne ne savait qu’elle existait à 2 km.</dd><dt>Intervention</dt><dd>Campagnes locales, partenariats, contenus Instagram et TikTok.</dd><dt>Résultat</dt><dd>+20 % d’adhérents en 3 mois.</dd></dl><span class="stamp">Terminé</span><footer><span>2025</span><span>Lire →</span></footer></div>
+  </div></div>
+
+  <div class="flabel"><span class="x">Frame 5 — Notes de terrain</span><span class="lbl">la section essais, façon carnet</span></div>
+  <div class="frame"><div class="f5">
+    <div class="l"><h2 class="x">Notes de terrain</h2><p>Ce que j’apprends en vendant, écrit pour penser plus clairement. Une note par mois, environ.</p><span class="hand" style="font-size:30px;display:block;transform:rotate(-3deg);margin-top:30px">pas de « 5 astuces pour closer ». promis.</span></div>
+    <div class="r">
+      <div class="erow"><span class="num">n°4</span><span class="t">Le premier rendez-vous est un diagnostic</span><span class="m">7 min</span></div>
+      <div class="erow"><span class="num">n°3</span><span class="t">Ce que 8 clients m’ont appris sur la relance</span><span class="m">5 min</span></div>
+      <div class="erow"><span class="num">n°2</span><span class="t">Pourquoi mes messages font moins de 80 mots</span><span class="m">4 min</span></div>
+      <div class="erow"><span class="num">n°1</span><span class="t">Vendre une vidéo à quelqu’un qui n’en voulait pas</span><span class="m">6 min</span></div>
+      <p class="lbl" style="margin-top:18px;color:#666">titres d’exemple · survole une ligne</p>
+    </div>
+  </div></div>
+  <div class="frame" style="margin-top:30px"><div class="f5b"><article>
+    <span class="k blue">Note de terrain n°4 · 12.10.2026 · 7 min</span>
+    <h2 class="x">Le premier rendez-vous est un diagnostic</h2>
+    <div class="art">
+      <h3>1. L’atelier</h3>
+      <div class="marg"><p>Pendant mon bac pro, j’ai appris qu’une panne ne se devine pas : elle se diagnostique. On pose des questions, on écarte des hypothèses, <mark>on ne change pas une pièce parce qu’elle « a l’air » usée.</mark></p><span class="hand">← mon prof d’atelier répétait ça tous les jours</span></div>
+      <h3>2. L’inverse de ce que je faisais</h3>
+      <p>Quand j’ai lancé WebVision, j’arrivais avec une offre et je cherchais à qui la placer. Les trois premiers rendez-vous n’ont rien donné…</p>
+    </div>
+    <p class="lbl" style="color:#666">Lecture : colonne étroite et sobre comme chez Paul Graham, structure numérotée comme chez Dario Amodei, annotations dans la marge pour la touche perso. Texte d’exemple.</p>
+  </article></div></div>
+
+  <div class="flabel"><span class="x">Frame 6 — Avant que vous demandiez</span><span class="lbl">la FAQ qui trie, réponses à écrire par toi</span></div>
+  <div class="frame"><div class="f6">
+    <h2 class="x">Avant que vous demandiez…</h2>
+    <div class="qa">
+      <div><b>Pourquoi le BD et pas le marketing ?</b><p>Parce que j’aime le moment où quelqu’un dit « ok, on y va ». Le marketing prépare ce moment ; moi, je veux le provoquer.</p></div>
+      <div><b>Le téléphone, ça vous fait peur ?</b><p>Moins qu’un mail sans réponse. J’ai signé mes premiers clients WebVision au téléphone.</p></div>
+      <div><b>Qui ne devrait pas me recruter ?</b><p>Une équipe qui cherche quelqu’un qui attend qu’on lui dise quoi faire.</p></div>
+      <div><b>Ce que je fais encore mal ?</b><p>Je parle trop vite quand un sujet m’emballe. Je m’enregistre pour corriger ça.</p></div>
+      <div><b>Bac pro maintenance → business ?</b><p>Diagnostiquer avant de réparer, c’est exactement qualifier avant de vendre. J’ai juste changé de machine.</p></div>
+      <div><b>Paris, vraiment ?</b><p>[à compléter : ta situation réelle]</p></div>
+    </div>
+  </div></div>
+
+  <div class="flabel"><span class="x">Frame 7 — Contact</span><span class="lbl">le fil se termine ici</span></div>
+  <div class="frame"><div class="f7">
+    <span class="hand">vous êtes arrivé·e jusqu’ici. c’est un signal d’achat, ça.</span>
+    <div><h2 class="x">On s’appelle ?</h2>
+      <div class="row"><a class="btn" href="#">15 min, cette semaine →</a><a class="btn o" href="#">clement@…</a><a class="btn o" href="#">CV PDF ↓</a></div></div>
+    <svg class="scrib draw" viewBox="0 0 400 200" style="right:40px;bottom:110px;width:380px;height:190px"><path pathLength="1" d="M400,20 C300,30 250,120 300,150 C350,180 380,120 330,100 C270,80 220,170 120,160 C60,154 20,120 0,90" style="stroke:#fff;stroke-width:4"/></svg>
+    <div class="foot"><span class="sig">Clément Dubosq</span><span class="lbl">Business developer · alternance · Paris · 2026</span></div>
+  </div></div>
+
+  <div class="flabel"><span class="x">Frame 8 — Mobile</span><span class="lbl">là où les recruteurs te découvrent</span></div>
+  <div class="phones">
+    <div class="ph"><div class="s m1"><div class="nm"><span class="sig">C. Dubosq</span><span class="call">On s’appelle ?</span></div><h2 class="x">Je ne lâche pas le <span class="blue">fil.</span></h2><span class="sticker"><i></i>En recherche · BD · Paris</span><img class="photo" src="{{cyano.jpg}}" alt=""><span class="hand">c’est moi ↙</span><p class="x name">Clément</p></div></div>
+    <div class="ph"><div class="s" style="background:#E7E5DE;padding:60px 14px 14px"><div class="bon" style="transform:rotate(-1.5deg)"><header><span class="x" style="font-size:26px">WebVision</span><span class="typed" style="font-size:12px">BON N° 001</span></header><dl><dt>Panne constatée</dt><dd>« On n’a pas le temps de faire des vidéos. »</dd><dt>Diagnostic</dt><dd>Un problème de visibilité, pas de temps.</dd><dt>Résultat</dt><dd>+12 000 € de CA en moins d’un an.</dd></dl><span class="stamp" style="font-size:18px">Terminé</span><footer><span>2023 → auj.</span><span>Lire →</span></footer></div></div></div>
+    <div class="ph"><div class="s" style="background:var(--blue);color:var(--paper);padding:70px 18px 18px;display:flex;flex-direction:column;justify-content:space-between"><div><p class="x" style="font-size:62px;margin:0">On s’appelle ?</p><p class="hand" style="color:#fff;font-size:28px;transform:rotate(-4deg)">réponse en moins de 24 h</p></div><div style="display:grid;gap:10px"><a class="btn" style="background:var(--paper);color:var(--ink);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:14px;font-weight:900;text-transform:uppercase;text-decoration:none;text-align:center">15 min, cette semaine →</a><span style="font-family:Caveat;font-size:44px">Clément Dubosq</span></div></div></div>
+  </div>
+</div></section>
+
+<!-- 06 DEMO -->
+<section class="demo" id="demo"><div class="stick">
+  <div class="cap"><span class="lbl blue">06 — L’interaction signature, en vrai</span><h3 class="x">Scrolle.<br>Tire le fil.</h3><p>C’est le geste du site : au scroll, le trait se dessine et relie les étapes d’une vraie vente. Sur le site final, il traverse toutes les sections.</p></div>
+  <span class="pct x" id="pct">0%</span>
+  <svg class="path" viewBox="0 0 1000 600" preserveAspectRatio="none"><path id="fil" pathLength="1" d="M70,520 C140,520 150,380 230,380 C320,380 300,470 390,450 C470,432 430,300 520,300 C610,300 600,420 680,380 C760,340 700,200 790,190 C880,180 870,300 930,250 C980,210 940,140 900,160 C860,180 900,230 960,120"/></svg>
+  <div class="node" data-t=".04" style="left:7%;top:86.6%"><div class="dot"></div><b>1er message</b><span class="hand">73 mots.</span></div>
+  <div class="node" data-t=".28" style="left:23%;top:63%"><div class="dot"></div><b>Relance J+3</b><span class="hand">silence radio</span></div>
+  <div class="node" data-t=".48" style="left:52%;top:50%"><div class="dot"></div><b>Relance J+10</b><span class="hand">avec un vrai sujet</span></div>
+  <div class="node" data-t=".7" style="left:79%;top:31%"><div class="dot"></div><b>Rendez-vous</b><span class="hand">40 min de questions</span></div>
+  <div class="node" data-t=".97" style="left:95%;top:21%"><div class="dot"></div><b class="blue">Signé.</b><span class="hand">🤝</span></div>
+</div></section>
+
+<!-- 07 SYSTEM -->
+<section class="sec"><div class="wrap">
+  <div class="head"><span class="x n">07</span><div><h2 class="x">Le système,<br><span class="blue">en court.</span></h2><p>Trois couleurs. Une famille de polices. Ta main. C’est tout, et c’est voulu.</p></div></div>
+  <div class="sw">
+    <div style="background:var(--blue);color:var(--paper)"><b>Bleu de chauffe</b><span>#1F3FD8 · 6,7:1 sur papier · la couleur de la marque, à 100 %</span></div>
+    <div style="background:var(--paper)"><b>Papier machine</b><span>#F2F1EC · blanc cassé froid, pas crème</span></div>
+    <div style="background:var(--ink);color:var(--paper)"><b>Encre</b><span>#0E0E10</span></div>
+  </div>
+  <div class="typo">
+    <div><div class="s x">Aa</div><p><b>Archivo Extra Condensed 900</b>Titres géants, coupés par le bord de l’écran. Gratuite, variable en largeur.</p></div>
+    <div><div class="s" style="font-weight:500">Aa</div><p><b>Archivo 400–600</b>Texte courant. Même famille : la cohérence vient de là.</p></div>
+    <div><div class="s hand" style="font-size:120px">Aa</div><p><b>Ton écriture</b>Annotations, signature. Ici simulée (Reenie Beanie, Caveat). À remplacer par un scan de ta vraie écriture.</p></div>
+    <div><div class="s typed" style="font-size:90px">Aa</div><p><b>Courier Prime</b>Uniquement dans les bons d’intervention, pour l’effet formulaire tapé à la machine.</p></div>
+  </div>
+  <div class="tex">
+    <figure><div class="t"><img src="{{cyano.jpg}}" alt="" style="width:100%;height:100%;object-fit:cover"></div><figcaption><b>Cyanotype</b>Toutes tes photos passent en bleu de plan : cohérence immédiate, même avec des photos de téléphone.</figcaption></figure>
+    <figure><div class="t"><img src="{{halftone.png}}" alt="" style="width:100%;height:100%;object-fit:cover"></div><figcaption><b>Trame photocopie</b>Variante pour les grands formats et l’image OG.</figcaption></figure>
+    <figure><div class="t"><span class="stamp" style="font-size:40px">Terminé</span><span class="stamp" style="font-size:28px;position:absolute;left:20px;bottom:30px;transform:rotate(6deg)">Bon pour accord</span></div><figcaption><b>Tampons</b>Sur les bons d’intervention et le statut. Ils s’impriment au scroll.</figcaption></figure>
+    <figure><div class="t" style="background:var(--paper)"><span class="tape" style="position:relative;transform:rotate(-8deg);width:160px;height:40px"></span><span class="hand" style="position:absolute;bottom:30px;font-size:36px">gribouillis, flèches, ratures</span></div><figcaption><b>Scotch &amp; feutre</b>La couche « fait main ». À doser : 2–3 annotations par écran, pas plus.</figcaption></figure>
+  </div>
+  <div class="motion">
+    <div><b>Le fil se dessine</b><p>SVG <code>stroke-dashoffset</code> lié au scroll (GSAP ScrollTrigger). C’est le geste du site.</p></div>
+    <div><b>Les tampons tombent</b><p>Scale 1.6 → 1 avec un léger rebond quand le bon entre dans l’écran.</p></div>
+    <div><b>Le nom géant glisse</b><p>« CLÉMENT » défile lentement en parallaxe sous la photo.</p></div>
+    <div><b>Le manifeste se révèle</b><p>Mot par mot, du flou au net, au scroll.</p></div>
+    <div><b>Les annotations s’écrivent</b><p>Le texte manuscrit apparaît trait par trait (SVG du vrai scan).</p></div>
+    <div class="no"><b>Pas de preloader</b><p>Le contenu est visible tout de suite, l’animation vient en plus. C’est ce qui cassait la v1.</p></div>
+  </div>
+</div></section>
+
+<!-- 08 TODO -->
+<section class="sec" style="padding-top:20px"><div class="wrap">
+  <div class="head"><span class="x n">08</span><div><h2 class="x">Ce qu’il faut<br><span class="blue">produire.</span></h2><p>Ce concept ne marche que si la matière est vraie. Une machine ne peut pas fabriquer ça à ta place, et c’est tout l’intérêt.</p></div></div>
+  <div class="todo">
+    <div><h3 class="x">Shooting · 1 h</h3><ul>
+      <li><div><b>Portrait plan taille, fond uni</b>pour le détourage du hero (lumière de fenêtre, t-shirt ou bleu de travail)</div></li>
+      <li><div><b>Au téléphone, en train de rire</b>le moment « relance »</div></li>
+      <li><div><b>Mains : écrire, tendre une carte, serrer une main</b>pour le fil et les transitions</div></li>
+      <li><div><b>5 photos d’archives</b>atelier du bac pro, tournage WebVision, course, surf… avec lieu et date</div></li>
+    </ul></div>
+    <div><h3 class="x">Scans · 30 min</h3><ul>
+      <li><div><b>Ta signature × 10</b>au feutre noir sur papier blanc, on garde la meilleure</div></li>
+      <li><div><b>Une page de ton écriture</b>l’alphabet + les annotations du site, pour les vectoriser</div></li>
+      <li><div><b>3 traits « fil » à main levée</b>longs, d’un seul geste, sans lever le feutre</div></li>
+      <li><div><b>Un vrai bon d’intervention</b>si tu en as gardé un de ton bac pro : on reprend sa mise en page</div></li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section class="end"><div class="wrap">
+  <h2 class="x">À toi.</h2>
+  <ol>
+    <li><b>Le concept « Le Fil » te parle ?</b> Si oui, je construis la v2 du site directement dans cette direction.</li>
+    <li><b>Lamagadan :</b> envoie 1–2 captures (je ne peux pas l’ouvrir d’ici) et dis-moi ce qui t’y plaît.</li>
+    <li><b>Le ton :</b> les réponses de la FAQ sont-elles trop osées, pas assez, ou justes ?</li>
+    <li><b>Ta situation :</b> statut de recherche, date de début, Paris ? Ça change le sticker et la FAQ.</li>
+  </ol>
+  <p class="hand" style="font-size:44px;margin-top:40px">— la suite dépend de toi. le fil, je le tiens.</p>
+</div></section>
+
+<script>
+(function(){
+  var sec=document.getElementById('demo'),fil=document.getElementById('fil'),pct=document.getElementById('pct'),nodes=[].slice.call(sec.querySelectorAll('.node'));
+  
+  function up(){var r=sec.getBoundingClientRect(),tot=sec.offsetHeight-innerHeight,p=Math.min(1,Math.max(0,-r.top/tot));
+    fil.style.strokeDashoffset=String(1-p);pct.textContent=Math.round(p*100)+'%';
+    nodes.forEach(function(n){n.classList.toggle('on',p>=parseFloat(n.dataset.t))});}
+  addEventListener('scroll',up,{passive:true});addEventListener('resize',up);up();
+})();
+</script>
+</body>
+</html>

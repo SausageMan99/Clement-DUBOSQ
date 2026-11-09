@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>clement-dubosq.com v2 — Moodboard & direction</title>
+<style>
+@font-face{font-family:"Instrument Serif";src:url({{instrument-serif-latin-400-normal.woff2}}) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url({{instrument-serif-latin-400-italic.woff2}}) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Newsreader";src:url({{newsreader-latin-opsz-normal.woff2}}) format("woff2");font-weight:200 800;font-style:normal;font-display:swap}
+@font-face{font-family:"Newsreader";src:url({{newsreader-latin-opsz-italic.woff2}}) format("woff2");font-weight:200 800;font-style:italic;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url({{geist-mono-latin-400-normal.woff2}}) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url({{geist-mono-latin-500-normal.woff2}}) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Geist";src:url({{geist-latin-wght-normal.woff2}}) format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --paper:#F2EEE6; --paper-2:#FBF9F4; --ink:#141413; --stone:#6B675E; --rule:#D9D3C7;
+  --signal:#FF4F1A; --signal-text:#B3340A; --marine:#16203A; --marine-2:#222D4D; --sand:#C9A77C;
+  --display:"Instrument Serif",Georgia,serif; --text:"Newsreader",Georgia,serif;
+  --sans:"Geist",system-ui,sans-serif; --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;font-family:var(--text);font-size:18px;line-height:1.55;font-optical-sizing:auto}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.22;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:underline;text-decoration-color:var(--signal);text-decoration-thickness:1.5px;text-underline-offset:3px}
+a:hover{color:var(--signal-text)}
+img{display:block;max-width:100%}
+.wrap{width:min(1280px,calc(100% - 48px));margin:0 auto}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.muted{color:var(--stone)}
+.sig{color:var(--signal-text)}
+em{font-style:italic}
+
+/* top */
+.top{position:sticky;top:0;z-index:40;background:rgba(242,238,230,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;height:48px;gap:20px}
+.top nav{display:flex;gap:18px;overflow:auto;white-space:nowrap}
+.top nav a{text-decoration:none}
+.top nav a:hover{color:var(--signal-text)}
+
+/* cover */
+.cover{padding:96px 0 72px;border-bottom:1px solid var(--ink)}
+.cover .meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:56px}
+.cover h1{font-family:var(--display);font-weight:400;font-size:clamp(64px,11vw,184px);line-height:.88;letter-spacing:-.02em;margin:0}
+.cover h1 em{color:var(--signal-text)}
+.cover .lede{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px;align-items:end}
+.cover .lede p{font-size:24px;line-height:1.35;margin:0;max-width:30ch}
+.toc{columns:2;column-gap:32px;border-top:1px solid var(--rule);padding-top:14px}
+.toc a{display:flex;justify-content:space-between;text-decoration:none;padding:5px 0;border-bottom:1px dotted var(--rule);break-inside:avoid}
+.toc a:hover{color:var(--signal-text)}
+
+/* sections */
+section.s{padding:96px 0;border-bottom:1px solid var(--rule)}
+.sh{display:grid;grid-template-columns:180px 1fr;gap:32px;margin-bottom:56px;align-items:start}
+.sh .n{font-family:var(--mono);font-size:13px;letter-spacing:.06em;padding-top:14px}
+.sh h2{font-family:var(--display);font-weight:400;font-size:clamp(44px,6vw,88px);line-height:.95;letter-spacing:-.015em;margin:0}
+.sh h2 em{color:var(--signal-text)}
+.sh p{max-width:62ch;margin:18px 0 0;font-size:20px;color:#3c3a35}
+.body-indent{margin-left:212px}
+@media(max-width:900px){.sh{grid-template-columns:1fr;gap:6px}.body-indent{margin-left:0}.cover .lede{grid-template-columns:1fr}.toc{columns:1}}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.grid2>*,.grid3>*,.grid4>*,.phones>*,.motion>*{min-width:0}
+@media(max-width:1000px){.grid3,.grid4{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.grid2,.grid3,.grid4{grid-template-columns:1fr}}
+
+.card{background:var(--paper-2);border:1px solid var(--rule);padding:24px;border-radius:2px}
+.card h3{font-family:var(--display);font-weight:400;font-size:32px;line-height:1;margin:0 0 12px}
+.card p{margin:0 0 10px;font-size:17px}
+.card ul{margin:0;padding-left:18px;font-size:16.5px}
+.card li{margin:4px 0}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;border:1px solid currentColor;padding:3px 7px;border-radius:99px;margin:0 6px 6px 0}
+
+/* audit */
+.audit{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:start}
+.shot{border:1px solid var(--ink);background:#fff;position:relative}
+.shot .cap{position:absolute;left:10px;bottom:10px;background:var(--ink);color:var(--paper);padding:4px 8px}
+.pin{position:absolute;width:28px;height:28px;border-radius:50%;background:var(--signal);color:#fff;display:grid;place-items:center;font:500 12px var(--mono);box-shadow:0 0 0 4px rgba(255,79,26,.25)}
+.shots-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;align-items:start}
+.issues{counter-reset:i;list-style:none;margin:0;padding:0}
+.issues li{counter-increment:i;display:grid;grid-template-columns:40px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid var(--rule);font-size:17px}
+.issues li:before{content:counter(i,decimal-leading-zero);font:500 12px var(--mono);color:var(--signal-text);padding-top:5px}
+.issues b{font-family:var(--sans);font-weight:600;font-size:15px;display:block;margin-bottom:2px}
+.sev{font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:99px;margin-left:6px;vertical-align:2px}
+.sev.c{background:var(--signal);color:#fff}.sev.m{background:var(--ink);color:var(--paper)}.sev.l{border:1px solid var(--stone);color:var(--stone)}
+.keep{margin-top:28px}
+.keep h4,.issues-h{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;margin:0 0 8px}
+
+/* personas */
+.persona{background:var(--paper-2);border:1px solid var(--rule);display:flex;flex-direction:column}
+.persona .ph{padding:22px 22px 18px;border-bottom:1px solid var(--rule)}
+.persona .ph .role{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--stone)}
+.persona .ph h3{font-family:var(--display);font-weight:400;font-size:40px;line-height:1;margin:8px 0 6px}
+.persona .ph .ctx{font-size:16px;color:#3c3a35;margin:0}
+.persona .q{background:var(--ink);color:var(--paper);padding:18px 22px;font-family:var(--display);font-style:italic;font-size:24px;line-height:1.15}
+.persona dl{margin:0;padding:6px 22px 18px}
+.persona dt{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--signal-text);margin-top:14px}
+.persona dd{margin:4px 0 0;font-size:16px}
+.time{display:flex;align-items:center;gap:10px;padding:12px 22px;border-top:1px solid var(--rule);margin-top:auto}
+.time .bar{flex:1;height:6px;background:var(--rule);border-radius:9px;overflow:hidden}
+.time .bar span{display:block;height:100%;background:var(--signal)}
+
+.insight{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--ink)}
+.insight>div{padding:28px}
+.insight>div+div{border-left:1px solid var(--ink)}
+.insight h3{font-family:var(--display);font-weight:400;font-size:38px;line-height:1;margin:0 0 14px}
+.five{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:8px;border-top:1px solid var(--ink)}
+.five div{padding:12px 8px;border-right:1px solid var(--rule);font-size:14.5px}
+.five div:last-child{border-right:0}
+.five b{display:block;font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--signal-text);margin-bottom:4px}
+@media(max-width:900px){.insight{grid-template-columns:1fr}.insight>div+div{border-left:0;border-top:1px solid var(--ink)}.five{grid-template-columns:1fr 1fr 1fr}}
+
+/* directions */
+.dir{border:1px solid var(--rule);background:var(--paper-2);display:flex;flex-direction:column}
+.dir.reco{border:2px solid var(--ink);box-shadow:8px 8px 0 var(--signal)}
+.dir .swatchbar{height:200px;position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
+.dir .info{padding:22px}
+.dir h3{font-family:var(--display);font-weight:400;font-size:44px;line-height:1;margin:6px 0 10px}
+.dir .info p{font-size:16.5px;margin:0 0 12px}
+.score{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+.score td{padding:6px 0;border-top:1px solid var(--rule)}
+.score td:last-child{text-align:right;font-family:var(--mono);letter-spacing:.1em;color:var(--signal-text)}
+/* direction previews */
+.pv-a{background:var(--paper);padding:22px}
+.pv-a .t{font-family:var(--display);font-size:52px;line-height:.9}
+.pv-a .t em{color:var(--signal-text)}
+.pv-a .m{margin-top:12px;display:flex;gap:8px}
+.pv-a .m span{font:500 10px var(--mono);border:1px solid var(--ink);border-radius:99px;padding:3px 8px}
+.pv-b{background:var(--marine);color:var(--paper);padding:18px;font-family:var(--sans);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;height:100%}
+.pv-b div{border:1px solid rgba(242,238,230,.18);padding:10px;display:flex;flex-direction:column;justify-content:space-between}
+.pv-b b{font-size:40px;font-weight:600;letter-spacing:-.04em;line-height:1}
+.pv-b small{font:10px var(--mono);letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+.pv-c{background:#0b0b0b;color:#fff;height:100%;display:flex;align-items:center;overflow:hidden}
+.pv-c .k{font-family:var(--sans);font-weight:900;font-size:120px;letter-spacing:-.07em;white-space:nowrap;line-height:.8;text-transform:uppercase;animation:mq 9s linear infinite}
+.pv-c .k span{-webkit-text-stroke:1px #fff;color:transparent}
+@keyframes mq{to{transform:translateX(-50%)}}
+.pv-c .blob{position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#ff8a5c,#ff4f1a 40%,#3b0d00 75%);filter:blur(2px);mix-blend-mode:screen}
+
+/* refs */
+.refs{border-top:1px solid var(--ink)}
+.ref{display:grid;grid-template-columns:44px 1.1fr 1fr 1.2fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--rule);align-items:baseline;transition:background .2s}
+.ref:hover{background:rgba(255,79,26,.06)}
+.ref .i{font:500 12px var(--mono);color:var(--stone)}
+.ref h4{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.05;margin:0}
+.ref h4 small{display:block;font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--stone);margin-top:6px}
+.ref p{margin:0;font-size:15.5px}
+.ref .take{border-left:2px solid var(--signal);padding-left:12px}
+.ref .lbl{display:block;font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--stone);margin-bottom:2px}
+@media(max-width:900px){.ref{grid-template-columns:30px 1fr}.ref>*:nth-child(n+3){grid-column:2}}
+.note{font-size:15px;background:var(--paper-2);border:1px dashed var(--stone);padding:12px 14px;margin-top:20px}
+
+/* palette */
+.sw{border:1px solid var(--rule);display:flex;flex-direction:column;min-height:240px}
+.sw .c{flex:1;padding:14px;display:flex;align-items:flex-end;justify-content:space-between}
+.sw .c span{font:500 11px var(--mono)}
+.sw .d{padding:12px 14px;background:var(--paper-2);font-size:14.5px}
+.sw .d b{font-family:var(--sans);font-weight:600;font-size:15px;display:block}
+.ratio{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.ratio div{font:12px var(--mono);border:1px solid var(--rule);padding:6px 10px;background:var(--paper-2)}
+.ratio .ok{color:#24663a}.ratio .ko{color:var(--signal-text)}
+.prop{display:flex;height:42px;margin-top:22px;border:1px solid var(--ink)}
+.prop div{display:flex;align-items:center;padding-left:10px;font:11px var(--mono)}
+
+/* type */
+.spec{border-top:1px solid var(--ink);padding:28px 0;display:grid;grid-template-columns:260px 1fr;gap:32px}
+.spec .lab b{font-family:var(--sans);font-size:20px;font-weight:600;display:block}
+.spec .lab p{font-size:15px;margin:6px 0 0;color:#3c3a35}
+.spec .demo-display{font-family:var(--display);font-size:clamp(56px,8vw,128px);line-height:.9;letter-spacing:-.015em}
+.spec .demo-display em{color:var(--signal-text)}
+.spec .demo-text{font-family:var(--text);font-size:21px;line-height:1.6;max-width:62ch}
+.spec .demo-text .drop:first-letter{font-family:var(--display);float:left;font-size:88px;line-height:.8;padding:6px 10px 0 0;color:var(--signal-text)}
+.spec .demo-mono{font-family:var(--mono);font-size:15px;line-height:1.9}
+.scale{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;margin-top:18px;font-family:var(--display)}
+.scale span small{font:10px var(--mono);display:block;color:var(--stone)}
+@media(max-width:800px){.spec{grid-template-columns:1fr}}
+
+/* components */
+.comp{background:var(--paper-2);border:1px solid var(--rule);padding:26px;display:flex;flex-direction:column;gap:16px}
+.comp .lbl{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--stone)}
+.status{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ink);border-radius:99px;padding:7px 14px 7px 10px;font:500 12px var(--mono);letter-spacing:.02em;background:var(--paper);width:max-content;max-width:100%}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--signal);position:relative;flex:none}
+.dot:after{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--signal);animation:pulse 2s ease-out infinite}
+@keyframes pulse{from{transform:scale(.6);opacity:1}to{transform:scale(1.8);opacity:0}}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);font:500 13px var(--sans);padding:13px 18px;border-radius:99px;text-decoration:none;transition:transform .2s,background .2s}
+.btn:hover{background:var(--signal);color:var(--ink);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn .arr{transition:transform .2s}.btn:hover .arr{transform:translateX(4px)}
+.nums{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink)}
+.nums div{padding:12px 10px 12px 0;border-bottom:1px solid var(--rule)}
+.nums b{font-family:var(--display);font-weight:400;font-size:52px;line-height:1;display:block}
+.nums span{font-size:14px;color:var(--stone)}
+.pour{border:1px solid var(--ink);background:var(--paper);font-size:16px;padding:12px 14px;display:flex;gap:12px;align-items:flex-start}
+.pour .mono{white-space:nowrap;color:var(--signal-text);padding-top:3px}
+.url{font:12px var(--mono);background:var(--ink);color:var(--paper);padding:8px 10px;border-radius:4px;overflow:auto;white-space:nowrap}
+.url b{color:var(--signal);font-weight:500}
+.erow{display:grid;grid-template-columns:72px 1fr 54px;gap:10px;padding:12px 0;border-bottom:1px solid var(--rule);align-items:baseline;cursor:default;transition:padding .25s}
+.erow .d,.erow .r{font:11px var(--mono);color:var(--stone)}
+.erow .t{font-family:var(--display);font-size:24px;line-height:1.1}
+.erow:hover{padding-left:10px}
+.erow:hover .t{color:var(--signal-text)}
+.erow .x{grid-column:2;font-size:14.5px;color:#3c3a35;max-height:0;overflow:hidden;transition:max-height .3s}
+.erow:hover .x{max-height:60px}
+.sn{font-size:16px;line-height:1.55}
+.sn sup{font:500 10px var(--mono);color:var(--signal-text)}
+.sn aside{font-size:13.5px;line-height:1.45;color:var(--stone);border-left:1px solid var(--signal);padding-left:10px;margin-top:10px}
+.lnk{font-size:19px}
+
+/* mockups */
+.frame{border:1px solid var(--ink);border-radius:12px;overflow:hidden;background:var(--paper);box-shadow:0 30px 80px rgba(20,20,19,.14)}
+.frame .bar{height:34px;display:flex;align-items:center;gap:7px;padding:0 12px;border-bottom:1px solid var(--rule);background:var(--paper-2)}
+.frame .bar i{width:10px;height:10px;border-radius:50%;background:var(--rule)}
+.frame .bar .u{margin-left:14px;font:11px var(--mono);color:var(--stone);background:var(--paper);padding:3px 10px;border-radius:99px;border:1px solid var(--rule)}
+.mk-label{display:flex;justify-content:space-between;margin:42px 0 12px}
+.mk-label:first-child{margin-top:0}
+
+/* home mock */
+.home{padding:20px 34px 34px;position:relative}
+.home nav{display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);font-size:14px}
+.home nav .links{display:flex;gap:22px}
+.home nav .nm{font-weight:600}
+.hero{display:grid;grid-template-columns:1.5fr .62fr;gap:36px;margin-top:56px;align-items:end}
+.hero h2{font-family:var(--display);font-weight:400;font-size:clamp(48px,7vw,112px);line-height:.9;letter-spacing:-.02em;margin:18px 0 0}
+.hero h2 em{color:var(--signal-text)}
+.hero h2 .ln{display:block;overflow:hidden}
+.hero h2 .ln>span{display:block;animation:rise 1s cubic-bezier(.2,.7,.1,1) both}
+.hero h2 .ln:nth-child(2)>span{animation-delay:.12s}
+@keyframes rise{from{transform:translateY(105%)}}
+.hero p.sub{font-size:20px;max-width:46ch;margin:26px 0 0;color:#3c3a35}
+.hero .ctas{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.hero figure{margin:0}
+.hero figure img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:grayscale(.15) contrast(1.02);border-radius:2px}
+.hero figcaption{display:flex;justify-content:space-between;font:11px var(--mono);color:var(--stone);margin-top:8px}
+.proofrow{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px;border-top:1px solid var(--ink)}
+.proofrow div{padding:14px 16px 0 0}
+.proofrow div+div{padding-left:16px;border-left:1px solid var(--rule)}
+.proofrow b{font-family:var(--display);font-weight:400;font-size:56px;line-height:1;display:block;letter-spacing:-.01em}
+.proofrow span{font-size:14.5px;color:#3c3a35}
+.marq{margin:34px -34px -34px;border-top:1px solid var(--ink);background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;padding:12px 0}
+.marq div{display:inline-block;animation:mq 30s linear infinite;font-family:var(--display);font-size:26px}
+.marq i{color:var(--signal);font-style:normal;margin:0 18px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.proofrow{grid-template-columns:1fr 1fr}}
+
+.phones{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}
+@media(max-width:1000px){.phones{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.phones{grid-template-columns:1fr}}
+.phone{border:1px solid var(--ink);border-radius:34px;padding:10px;background:var(--ink);max-width:340px;margin:0 auto;width:100%}
+.phone .scr{border-radius:26px;overflow:hidden;background:var(--paper);height:600px;position:relative}
+.phone .og{background:#fff;border-radius:26px;height:600px;padding:18px 14px;font-family:var(--sans);font-size:13px}
+.m-in{padding:16px 18px}
+.m-in .nm{display:flex;justify-content:space-between;font:600 13px var(--sans)}
+.m-in h2{font-family:var(--display);font-weight:400;font-size:46px;line-height:.92;margin:18px 0 0}
+.m-in h2 em{color:var(--signal-text)}
+.m-in p{font-size:15px;margin:12px 0 0;color:#3c3a35}
+.m-in .status{font-size:10px;padding:5px 10px 5px 8px;margin-top:16px}
+.m-in .ctas{display:flex;gap:8px;margin-top:14px}
+.m-in .btn{font-size:12px;padding:10px 14px}
+.m-in .mini{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink);margin-top:16px}
+.m-in .mini div{padding:8px 0;border-bottom:1px solid var(--rule)}
+.m-in .mini b{font-family:var(--display);font-size:32px;font-weight:400;line-height:1;display:block}
+.m-in .mini span{font-size:11.5px;color:var(--stone)}
+.m-photo{height:150px;overflow:hidden;margin-top:14px}
+.m-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.li-post{border:1px solid #e3e3e3;border-radius:10px;overflow:hidden;margin-top:12px}
+.li-post .ogimg{aspect-ratio:1.91/1;background:var(--paper);position:relative;padding:14px;display:flex;flex-direction:column;justify-content:space-between}
+.li-post .ogimg .t{font-family:var(--display);font-size:30px;line-height:.92}
+.li-post .ogimg .t em{color:var(--signal-text)}
+.li-post .ogimg img{position:absolute;right:0;top:0;height:100%;width:38%;object-fit:cover;object-position:50% 20%}
+.li-post .cap{padding:8px 10px;background:#f3f2ef;font-size:12px}
+.li-post .cap b{display:block;font-size:13px}
+
+/* essays index mock */
+.eindex{padding:46px 56px 56px;display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+.eindex h2{font-family:var(--display);font-weight:400;font-size:96px;line-height:.9;margin:0}
+.eindex .intro{font-size:18px;color:#3c3a35;margin:18px 0 0;max-width:34ch}
+.eindex .sub{margin-top:28px;display:flex;flex-direction:column;gap:8px}
+.yr{font:500 11px var(--mono);letter-spacing:.06em;color:var(--stone);margin:22px 0 4px;display:flex;justify-content:space-between}
+.yr:first-child{margin-top:0}
+@media(max-width:900px){.eindex{grid-template-columns:1fr;padding:28px}}
+
+/* essay mock */
+.essay{display:grid;grid-template-columns:200px minmax(0,640px) 220px;gap:44px;padding:50px 44px 60px;justify-content:center}
+.essay .tocm{position:sticky;top:20px;align-self:start;font:12px/1.9 var(--mono);color:var(--stone)}
+.essay .tocm a{text-decoration:none;display:block}
+.essay .tocm a.on{color:var(--ink)}
+.essay .tocm a.on:before{content:"→ ";color:var(--signal)}
+.essay .prog{height:2px;background:var(--rule);margin:10px 0 16px}
+.essay .prog span{display:block;width:34%;height:100%;background:var(--signal)}
+.essay header .k{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--stone)}
+.essay h2{font-family:var(--display);font-weight:400;font-size:64px;line-height:.95;margin:14px 0 18px;letter-spacing:-.01em}
+.essay .dek{font-size:22px;line-height:1.4;color:#3c3a35;font-style:italic;margin:0 0 30px}
+.essay .art p{font-size:19.5px;line-height:1.65;margin:0 0 20px}
+.essay .art h3{font-family:var(--text);font-weight:600;font-size:21px;margin:34px 0 10px}
+.essay .art h3 span{font:500 12px var(--mono);color:var(--signal-text);margin-right:10px}
+.essay .art blockquote{margin:28px 0;padding:0 0 0 22px;border-left:2px solid var(--signal);font-family:var(--display);font-size:34px;line-height:1.1}
+.essay .side{font-size:14px;line-height:1.5;color:var(--stone)}
+.essay .side .fn{position:relative;padding-top:4px;margin-bottom:28px}
+.essay .side .fn b{font:500 11px var(--mono);color:var(--signal-text);margin-right:6px}
+.essay sup{font:500 11px var(--mono);color:var(--signal-text)}
+.essay .end{border-top:1px solid var(--ink);margin-top:40px;padding-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.essay .end .mono{color:var(--stone)}
+.essay .end .t{font-family:var(--display);font-size:28px;line-height:1.05;margin-top:6px}
+.example{display:inline-block;background:var(--signal);color:var(--ink);font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:3px;vertical-align:4px;margin-left:8px}
+@media(max-width:1100px){.essay{grid-template-columns:minmax(0,1fr);padding:30px}.essay .tocm,.essay .side{display:none}}
+
+/* motion */
+.motion{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.mo{border:1px solid var(--rule);background:var(--paper-2);padding:20px;display:flex;flex-direction:column;gap:12px}
+.mo .stage{height:130px;border:1px solid var(--rule);background:var(--paper);position:relative;overflow:hidden;display:grid;place-items:center}
+.mo h4{font-family:var(--sans);font-weight:600;font-size:16px;margin:0}
+.mo p{margin:0;font-size:15px}
+.mo .dur{font:11px var(--mono);color:var(--signal-text)}
+.st-rise{font-family:var(--display);font-size:46px;line-height:1;overflow:hidden}
+.st-rise span{display:block;animation:loopRise 3s cubic-bezier(.2,.7,.1,1) infinite}
+@keyframes loopRise{0%{transform:translateY(110%)}30%,80%{transform:translateY(0)}100%{transform:translateY(-110%)}}
+.st-count{font-family:var(--display);font-size:64px}
+.st-under{font-size:26px;font-family:var(--display)}
+.st-under span{background:linear-gradient(var(--signal),var(--signal)) 0 100%/0 2px no-repeat;animation:und 2.6s ease infinite}
+@keyframes und{0%{background-size:0 2px}40%,80%{background-size:100% 2px}100%{background-size:100% 2px;background-position:100% 100%}}
+.st-vt{display:flex;gap:8px;align-items:center}
+.st-vt div{border:1px solid var(--ink);padding:8px;font-family:var(--display);font-size:18px;background:var(--paper-2);animation:vt 3.4s ease-in-out infinite}
+@keyframes vt{0%,25%{transform:scale(.7);opacity:.6}50%,85%{transform:scale(1.25);opacity:1}100%{transform:scale(.7);opacity:.6}}
+.st-hover{width:80%}
+.st-hover .erow{animation:hv 3s ease infinite}
+@keyframes hv{0%,30%{padding-left:0}50%,90%{padding-left:10px}}
+.st-no{font:500 13px var(--mono);color:var(--signal-text);text-align:center;line-height:1.6}
+@media(max-width:900px){.motion{grid-template-columns:1fr}}
+
+/* sitemap */
+.map{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--ink)}
+.map .col{border-right:1px solid var(--ink);padding:18px}
+.map .col:last-child{border-right:0}
+.map .col h4{font-family:var(--display);font-weight:400;font-size:30px;margin:0;line-height:1}
+.map .col .p{font:11px var(--mono);color:var(--signal-text);margin:6px 0 12px}
+.map .col ol{margin:0;padding-left:18px;font-size:14.5px}
+.map .col li{margin:6px 0}
+@media(max-width:1000px){.map{grid-template-columns:1fr 1fr}.map .col{border-bottom:1px solid var(--ink)}}
+.order{margin-top:36px;border-top:1px solid var(--ink)}
+.order .row{display:grid;grid-template-columns:44px 220px 1fr 120px;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.order .row .i{font:500 12px var(--mono);color:var(--signal-text)}
+.order .row b{font-family:var(--display);font-weight:400;font-size:26px}
+.order .row p{margin:0;font-size:16px}
+.order .row .t{font:11px var(--mono);color:var(--stone);text-align:right}
+@media(max-width:800px){.order .row{grid-template-columns:30px 1fr}.order .row p,.order .row .t{grid-column:2;text-align:left}}
+
+/* essays strategy */
+.compare{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink)}
+.compare>div{padding:26px}
+.compare>div+div{border-left:1px solid var(--ink)}
+.compare h3{font-family:var(--display);font-weight:400;font-size:40px;margin:0 0 4px;line-height:1}
+.compare .pg{font-family:Verdana,Geneva,sans-serif;font-size:13px;line-height:1.6;background:#fff;border:1px solid var(--rule);padding:14px;margin-top:14px}
+.compare .pg a{color:#000080;text-decoration:underline;text-decoration-color:#000080;text-decoration-thickness:1px}
+.compare .da{background:#fff;border:1px solid var(--rule);padding:18px;margin-top:14px;font-family:Georgia,serif}
+.compare .da .h{font-size:22px;margin:0 0 6px}
+.compare .da p{font-size:14px;margin:0 0 8px;line-height:1.6}
+@media(max-width:900px){.compare{grid-template-columns:1fr}.compare>div+div{border-left:0;border-top:1px solid var(--ink)}}
+.topics{counter-reset:t;border-top:1px solid var(--ink);margin-top:36px}
+.topic{counter-increment:t;display:grid;grid-template-columns:44px 1fr 1fr 110px;gap:18px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.topic:before{content:counter(t,decimal-leading-zero);font:500 12px var(--mono);color:var(--signal-text)}
+.topic b{font-family:var(--display);font-weight:400;font-size:26px;line-height:1.1}
+.topic p{margin:0;font-size:15.5px;color:#3c3a35}
+.topic .w{font:11px var(--mono);color:var(--stone);text-align:right}
+@media(max-width:900px){.topic{grid-template-columns:30px 1fr}.topic p,.topic .w{grid-column:2;text-align:left}}
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--ink);margin-top:36px}
+.rules div{padding:20px;border-right:1px solid var(--ink)}
+.rules div:last-child{border-right:0}
+.rules b{font-family:var(--display);font-weight:400;font-size:26px;line-height:1.05;display:block;margin-bottom:8px}
+.rules p{margin:0;font-size:15px}
+@media(max-width:900px){.rules{grid-template-columns:1fr 1fr}.rules div{border-bottom:1px solid var(--ink)}}
+.template{background:var(--ink);color:var(--paper);padding:24px 28px;font:13.5px/1.75 var(--mono);margin-top:36px;border-radius:4px;overflow:auto;white-space:pre}
+.template .c{color:#9A968C}
+.template .o{color:var(--signal)}
+
+/* plan */
+.phase{border-top:1px solid var(--ink);padding:20px 0;display:grid;grid-template-columns:160px 240px 1fr 1fr;gap:28px}
+.phase h4{font-family:var(--display);font-weight:400;font-size:32px;margin:0;line-height:1}
+.phase .mono{color:var(--signal-text)}
+.phase ul{margin:0;padding-left:18px;font-size:16px}
+.phase li{margin:4px 0}
+@media(max-width:900px){.phase{grid-template-columns:1fr;gap:8px}}
+.qs{counter-reset:q;list-style:none;padding:0;margin:0;border-top:1px solid var(--ink)}
+.qs li{counter-increment:q;display:grid;grid-template-columns:44px 1fr;padding:16px 0;border-bottom:1px solid var(--rule);font-size:18px}
+.qs li:before{content:"Q" counter(q);font:500 12px var(--mono);color:var(--signal-text);padding-top:6px}
+.qs small{display:block;font-size:15px;color:var(--stone);margin-top:4px}
+
+footer{padding:64px 0 90px}
+footer .big{font-family:var(--display);font-size:clamp(48px,8vw,128px);line-height:.9;margin:0}
+footer .big em{color:var(--signal-text)}
+
+@media(max-width:700px){
+  .wrap{width:calc(100% - 32px)}
+  .top nav{display:none}
+  section.s{padding:64px 0}
+  .cover{padding:56px 0 48px}.cover .meta{flex-direction:column;margin-bottom:32px}
+  .mk-label{flex-direction:column;gap:4px}
+  .home{padding:16px}.home nav .links{display:none}.hero{margin-top:28px}
+  .proofrow b{font-size:40px}.proofrow div+div{padding-left:0;border-left:0}
+  .marq{margin:24px -16px -16px}.marq div{font-size:20px}
+  .eindex h2{font-size:64px}
+  .erow{grid-template-columns:52px 1fr 40px}.erow .t{font-size:21px}
+  .essay{padding:24px 18px}.essay h2{font-size:40px}.essay .end{grid-template-columns:1fr}
+  .phase{grid-template-columns:1fr}
+  .template{font-size:11.5px;padding:18px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <span class="mono"><b>clement-dubosq.com</b> / v2 / moodboard</span>
+  <nav class="mono">
+    <a href="#diag">Diagnostic</a><a href="#cible">Cible</a><a href="#direction">Direction</a><a href="#refs">Références</a><a href="#systeme">Système</a><a href="#maquettes">Maquettes</a><a href="#essais">Essais</a><a href="#plan">Plan</a>
+  </nav>
+</div></div>
+
+<header class="cover"><div class="wrap">
+  <div class="meta mono"><span>Moodboard &amp; direction artistique</span><span>Refonte complète — novembre 2026</span><span class="sig">Direction recommandée : « Terrain »</span></div>
+  <h1>Moins de costume.<br><em>Plus de terrain.</em></h1>
+  <div class="lede">
+    <p>Le nouveau site doit faire ce qu’un bon message de prospection fait&nbsp;: donner le contexte, prouver, demander une seule chose.</p>
+    <nav class="toc mono" aria-label="Sommaire">
+      <a href="#diag"><span>01 Diagnostic du site actuel</span><span>→</span></a>
+      <a href="#cible"><span>02 La cible, de l’intérieur</span><span>→</span></a>
+      <a href="#direction"><span>03 Trois directions</span><span>→</span></a>
+      <a href="#refs"><span>04 Références Awwwards</span><span>→</span></a>
+      <a href="#systeme"><span>05 Couleur &amp; typo</span><span>→</span></a>
+      <a href="#composants"><span>06 Éléments signature</span><span>→</span></a>
+      <a href="#maquettes"><span>07 Maquettes</span><span>→</span></a>
+      <a href="#motion"><span>08 Mouvement</span><span>→</span></a>
+      <a href="#archi"><span>09 Architecture</span><span>→</span></a>
+      <a href="#essais"><span>10 Section Essais</span><span>→</span></a>
+      <a href="#plan"><span>11 Plan &amp; stack</span><span>→</span></a>
+      <a href="#questions"><span>12 Questions pour toi</span><span>→</span></a>
+    </nav>
+  </div>
+</div></header>
+
+<!-- 01 -->
+<section class="s" id="diag"><div class="wrap">
+  <div class="sh"><span class="n">01 — Diagnostic</span><div><h2>Le site actuel est malin.<br><em>Il n’est plus à jour.</em></h2><p>Le concept « dossier de prospection » est original et le ton est honnête. Mais un recruteur qui ouvre le lien aujourd’hui tombe sur une date passée, un titre coupé et des sections vides.</p></div></div>
+  <div class="audit">
+    <div>
+      <div class="shot">
+        <img src="{{current-hero.jpg}}" alt="Capture du site actuel à 1440 px">
+        <span class="pin" style="left:57%;top:28%">1</span>
+        <span class="pin" style="left:30%;top:9%">2</span>
+        <span class="pin" style="left:6%;top:62%">3</span>
+        <span class="mono cap">Actuel — 1440 px</span>
+      </div>
+      <div class="shots-col">
+        <div class="shot"><img src="{{current-mobile.jpg}}" alt="Capture du site actuel sur mobile"><span class="pin" style="right:6%;top:37%">1</span><span class="mono cap">Mobile 390 px</span></div>
+        <div class="shot"><img src="{{current-empty.jpg}}" alt="Sections vides dans une capture pleine page"><span class="pin" style="left:45%;top:40%">4</span><span class="mono cap">Pleine page</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="issues-h sig">Ce qui casse</p>
+      <ol class="issues">
+        <li><div><b>Titre tronqué<span class="sev c">critique</span></b>« DEVELOPMEN » : le mot déborde à 1440 px comme à 390 px. C’est la première ligne lue.</div></li>
+        <li><div><b>Périmé<span class="sev c">critique</span></b>« Alternance septembre 2026 » alors qu’on est en novembre 2026. Message involontaire : « pas suivi ».</div></li>
+        <li><div><b>Aperçu LinkedIn cassé<span class="sev c">critique</span></b><code>og-image.png</code> fait 1 octet. Partagé sur LinkedIn ou par mail, le lien n’affiche aucune image.</div></li>
+        <li><div><b>Contenu caché derrière l’animation<span class="sev m">majeur</span></b>Les sections partent à <code>opacity:0</code> et n’apparaissent qu’au scroll (GSAP). Scroll rapide, capture ou aperçu = page vide.</div></li>
+        <li><div><b>Pas de visage<span class="sev m">majeur</span></b><code>photo.png</code> existe mais n’est pas affichée. En vente, on recrute d’abord une personne.</div></li>
+        <li><div><b>Aucune voix<span class="sev m">majeur</span></b>Rien ne montre comment tu penses ni comment tu écris. Écrire, c’est la moitié du travail d’un BD.</div></li>
+        <li><div><b>Jargon FR/EN<span class="sev l">mineur</span></b>« Proof Ledger », « Fit Map », « Recruiter brief » : ça fait concept, mais ça met de la distance.</div></li>
+        <li><div><b>Three.js pour un profil commercial<span class="sev l">mineur</span></b>Beaucoup de JS pour un effet qui ne prouve rien sur la vente.</div></li>
+        <li><div><b>Incohérences site ↔ CV<span class="sev m">majeur</span></b>W hub (site) absent du CV · Wav’Arts (CV) absent du site · Bachelor « MCN » vs « Management d’Entreprise » · IPAC Caen vs recherche à Paris · téléphone du CV à 9 chiffres · adresse wanadoo.</div></li>
+      </ol>
+      <div class="keep">
+        <h4>À garder</h4>
+        <p style="font-size:16.5px;margin:0">Le ton « pas de survente » · la méthode en 6 étapes (Target → Pipeline) · l’accessibilité (skip link, reduced-motion) · le JSON-LD · le papier chaud + un accent.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 02 -->
+<section class="s" id="cible"><div class="wrap">
+  <div class="sh"><span class="n">02 — La cible</span><div><h2>Trois personnes,<br><em>un seul lien.</em></h2><p>Je me suis mis à la place de ceux qui vont réellement ouvrir clement-dubosq.com. Ils ne lisent pas, ils <em>scannent</em>, puis décident s’ils creusent. Ces personas sont fictifs : ce sont des hypothèses de travail, à valider avec 3–5 vrais recruteurs.</p></div></div>
+  <div class="grid3">
+    <article class="persona">
+      <div class="ph"><span class="role">Filtre n°1 · Talent acquisition</span><h3>Camille, 29 ans</h3><p class="ctx">Chargée de recrutement dans une scale-up SaaS parisienne. Une quarantaine de candidatures alternance BD cette semaine. Ouvre ton lien depuis LinkedIn, <b>sur son téléphone</b>, entre deux calls.</p></div>
+      <div class="q">« Je le passe au manager, oui ou non&nbsp;? »</div>
+      <dl>
+        <dt>Cherche en 30 s</dt><dd>Poste visé · dispo &amp; rythme · école · ville · 2–3 résultats chiffrés · CV en PDF</dd>
+        <dt>Fuit</dt><dd>Survente, jargon, intro animée qui fait attendre, date périmée, lien CV cassé</dd>
+        <dt>Le site doit</dt><dd>Répondre aux 6 questions du premier écran (voir plus bas) sans scroller sur mobile.</dd>
+      </dl>
+      <div class="time"><span class="mono">≈ 30–60 s</span><span class="bar"><span style="width:15%"></span></span></div>
+    </article>
+    <article class="persona">
+      <div class="ph"><span class="role">Décideur · futur tuteur</span><h3>Thomas, 36 ans</h3><p class="ctx">Head of Sales, 8 SDR/AE. Lit ton site sur desktop <b>après</b> le feu vert de Camille, la veille de l’entretien. Il cherche des signaux qu’on ne trouve pas sur un CV.</p></div>
+      <div class="q">« Je peux le mettre au téléphone dans trois semaines&nbsp;? »</div>
+      <dl>
+        <dt>Cherche en 3–5 min</dt><dd>Sait-il écrire un message court ? Tenir un pipe ? Encaisser un non ? Accepter le feedback ? A-t-il faim ?</dd>
+        <dt>Fuit</dt><dd>Le profil « créa/marketing » qui n’aime pas le téléphone. Les mots-clés de CV sans exemples.</dd>
+        <dt>Le site doit</dt><dd>Montrer une étude de cas (WebVision), la méthode et <b>un essai</b> qui prouve ta façon de penser.</dd>
+      </dl>
+      <div class="time"><span class="mono">≈ 3–5 min</span><span class="bar"><span style="width:55%"></span></span></div>
+    </article>
+    <article class="persona">
+      <div class="ph"><span class="role">Décideur · startup</span><h3>Sarah, 33 ans</h3><p class="ctx">Fondatrice d’une startup B2B de 15 personnes. Recrute son <b>premier</b> BD alternant, sans process sales établi. Lit tout si ça l’accroche, sinon ferme l’onglet.</p></div>
+      <div class="q">« Il se débrouille sans qu’on lui tienne la main&nbsp;? »</div>
+      <dl>
+        <dt>Cherche</dt><dd>L’esprit entrepreneur (WebVision, 8 clients signés seul), la polyvalence (vidéo, 3D, IA), la curiosité.</dd>
+        <dt>Fuit</dt><dd>Le candidat « scolaire » qui attend des process. Les sites-templates interchangeables.</dd>
+        <dt>Le site doit</dt><dd>Avoir une personnalité, des opinions (essais) et un détail qui montre le réflexe BD (ex. la personnalisation <code>?pour=</code>).</dd>
+      </dl>
+      <div class="time"><span class="mono">0 s ou 10 min</span><span class="bar"><span style="width:90%"></span></span></div>
+    </article>
+  </div>
+
+  <div class="insight">
+    <div>
+      <p class="mono sig" style="margin:0 0 10px">Insight</p>
+      <h3>Le site est ta première prospection.</h3>
+      <p style="margin:0;font-size:17px">Les trois arrivent par un lien (LinkedIn, mail, CV). Leur première impression, c’est <b>l’aperçu du lien</b> puis <b>le premier écran mobile</b>. Si ces deux moments sont parfaits, tu as déjà fait mieux que 90 % des candidats. Le reste du site sert à Thomas et Sarah, et c’est là que les essais font la différence.</p>
+    </div>
+    <div>
+      <p class="mono sig" style="margin:0 0 10px">Test des 5 secondes — premier écran mobile</p>
+      <div class="five">
+        <div><b>Qui</b>Clément Dubosq + photo</div>
+        <div><b>Quoi</b>Alternance Business Dev B2B</div>
+        <div><b>Quand</b>Dispo + rythme</div>
+        <div><b>Où</b>Paris / IDF</div>
+        <div><b>Preuve</b>8 clients · +12 k€</div>
+        <div><b>Action</b>Écrire · CV</div>
+      </div>
+      <p style="margin:16px 0 0;font-size:15px" class="muted">Le site actuel coche « Quoi », « Où » et « Quand », mais le « Quand » est périmé. « Qui » (visage) et « Preuve » manquent au-dessus de la ligne de flottaison.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- 03 -->
+<section class="s" id="direction"><div class="wrap">
+  <div class="sh"><span class="n">03 — Direction</span><div><h2>Trois pistes.<br><em>Une recommandation.</em></h2><p>Le niveau Awwwards ne vient pas de la 3D. Il vient de la justesse : une typographie qui a du caractère, un rythme maîtrisé, des micro-interactions précises et zéro friction. Pour un profil commercial, la pièce maîtresse, c’est la clarté.</p></div></div>
+  <div class="grid3">
+    <article class="dir reco">
+      <div class="swatchbar pv-a">
+        <div class="t">Je trouve des clients.<br><em>Puis je les garde.</em></div>
+        <div class="m"><span>● Disponible</span><span>Paris</span><span>Essais</span></div>
+      </div>
+      <div class="info">
+        <span class="tag sig">Recommandée</span>
+        <h3>A — Terrain</h3>
+        <p>Éditorial chaleureux. Serif expressive, papier, encre, un orange « signal ». Le site est une petite publication personnelle : un CV qu’on scanne en 30 s, des preuves, et des essais.</p>
+        <table class="score"><tr><td>Lisible pour Camille</td><td>●●●●●</td></tr><tr><td>Mémorable pour Sarah</td><td>●●●●○</td></tr><tr><td>Crédible pour un BD</td><td>●●●●●</td></tr><tr><td>Coût / maintenance</td><td>●●●●○</td></tr></table>
+      </div>
+    </article>
+    <article class="dir">
+      <div class="swatchbar"><div class="pv-b"><div><small>Clients B2B</small><b>08</b></div><div><small>CA généré</small><b>12k</b></div><div><small>Leads</small><b>+40%</b></div><div><small>Satisfaction</small><b>95%</b></div><div><small>TOEIC</small><b>860</b></div><div><small>Statut</small><b style="color:var(--signal)">●</b></div></div></div>
+      <div class="info">
+        <h3>B — Signal</h3>
+        <p>Suisse / data. Grille stricte, gros chiffres, tableau de bord du pipeline, fond marine. Très « SaaS ».</p>
+        <p class="muted" style="font-size:15px">Risque : froid, et ça ressemble vite à un template de dashboard. Les chiffres sont trop peu nombreux pour porter un site entier.</p>
+        <table class="score"><tr><td>Lisible pour Camille</td><td>●●●●○</td></tr><tr><td>Mémorable pour Sarah</td><td>●●○○○</td></tr><tr><td>Crédible pour un BD</td><td>●●●●○</td></tr><tr><td>Coût / maintenance</td><td>●●●●○</td></tr></table>
+      </div>
+    </article>
+    <article class="dir">
+      <div class="swatchbar pv-c"><div class="blob"></div><div class="k">Clément <span>Dubosq</span> Clément <span>Dubosq</span>&nbsp;</div></div>
+      <div class="info">
+        <h3>C — Kinetic</h3>
+        <p>Typo cinétique, WebGL, smooth-scroll, curseur custom. C’est le plus « Awwwards » au sens strict.</p>
+        <p class="muted" style="font-size:15px">Risque : lent sur mobile, contenu derrière l’effet, et le mauvais message (« créatif » plutôt que « vendeur »). C’est déjà le défaut du site actuel.</p>
+        <table class="score"><tr><td>Lisible pour Camille</td><td>●○○○○</td></tr><tr><td>Mémorable pour Sarah</td><td>●●●●○</td></tr><tr><td>Crédible pour un BD</td><td>●●○○○</td></tr><tr><td>Coût / maintenance</td><td>●○○○○</td></tr></table>
+      </div>
+    </article>
+  </div>
+  <p class="note"><b>Verdict :</b> A « Terrain », avec deux emprunts à B (les chiffres en mono, la méthode en tableau). De C, on garde une seule chose : le titre qui se révèle ligne par ligne, et le texte reste visible sans JavaScript.</p>
+</div></section>
+
+<!-- 04 -->
+<section class="s" id="refs"><div class="wrap">
+  <div class="sh"><span class="n">04 — Références</span><div><h2>Ce qu’on prend.<br><em>Ce qu’on laisse.</em></h2><p>Sites of the Day Awwwards de 2026, plus deux références d’essais. L’idée n’est pas de copier un look, c’est d’emprunter des <em>mécanismes</em> qui servent la cible.</p></div></div>
+  <div class="refs">
+    <div class="ref"><span class="i">01</span><h4><a href="https://www.awwwards.com/sites/leo-parpeix-portfolio-2026">Léo Parpeix — Portfolio 2026</a><small>SOTD · 14 sept. 2026 · 7,69/10</small></h4><p><span class="lbl">Quoi</span>Portfolio d’un DA / designer interactif (Locomotive) : 3D, motion, WebGL.</p><p class="take"><span class="lbl">On prend</span>Le niveau de finition des transitions et de la typo. <b>On laisse</b> le WebGL : hors sujet pour un BD.</p></div>
+    <div class="ref"><span class="i">02</span><h4><a href="https://www.awwwards.com/sites/g-colombel-portfolio-2026">G. Colombel — Portfolio 2026</a><small>SOTD · 28 oct. 2026</small></h4><p><span class="lbl">Quoi</span>Freelance dev interactif, basé à Paris, « available worldwide ».</p><p class="take"><span class="lbl">On regarde</span>Comment un indépendant affiche sa <b>disponibilité</b> et son offre en un écran : c’est exactement ton problème.</p></div>
+    <div class="ref"><span class="i">03</span><h4><a href="https://www.awwwards.com/websites/sites_of_the_day/">Obys (SOTD mai 2026) &amp; Grids (SOTM sept. 2021)</a><small>Studio de référence · typographie</small></h4><p><span class="lbl">Quoi</span>Studio connu pour le storytelling éditorial et les grilles visibles.</p><p class="take"><span class="lbl">On prend</span>La typo <b>comme</b> mise en page : la hiérarchie se fait par la taille et l’espace, pas par des boîtes.</p></div>
+    <div class="ref"><span class="i">04</span><h4><a href="https://www.awwwards.com/websites/sites_of_the_day/">Lando Norris</a><small>Site of the Year 2025 (selon une synthèse tierce)</small></h4><p><span class="lbl">Quoi</span>Le site personnel d’une personne réelle, et non d’une agence. Identité très forte.</p><p class="take"><span class="lbl">On prend</span>L’idée d’<b>un élément signature récurrent</b>. Chez toi, ce sera le point orange « signal » et la pastille de statut.</p></div>
+    <div class="ref"><span class="i">05</span><h4><a href="https://www.awwwards.com/websites/sites_of_the_day/">Extrafazant · ViV · Grail · DeepBook</a><small>SOTD · 3–8 nov. 2026</small></h4><p><span class="lbl">Quoi</span>Les lauréats de la semaine : l’état de l’art en ce moment.</p><p class="take"><span class="lbl">On regarde</span>Le niveau actuel des micro-interactions (hover, états, transitions de page). À calibrer, pas à copier.</p></div>
+    <div class="ref"><span class="i">06</span><h4><a href="https://www.awwwards.com/websites/winner_category_portfolio/">Portfolios SOTD 2026</a><small>Jesper Landberg · Gil Huybrecht · Maria Vasilyeva · Pacôme Pertant · Adcker</small></h4><p><span class="lbl">Quoi</span>Portfolios personnels primés cette année.</p><p class="take"><span class="lbl">On prend</span>Le motif récurrent : <b>une liste-index</b> sobre qui s’anime au survol, au lieu de grilles de cartes.</p></div>
+    <div class="ref"><span class="i">07</span><h4><a href="https://paulgraham.com/articles.html">Paul Graham — Essays</a><small>paulgraham.com</small></h4><p><span class="lbl">Quoi</span>Une liste de titres, une colonne étroite, presque aucun design. Des centaines d’essais.</p><p class="take"><span class="lbl">On prend</span>La preuve qu’un index <b>nu</b> suffit quand l’écriture est bonne. Des titres clairs, une idée par essai, des phrases courtes.</p></div>
+    <div class="ref"><span class="i">08</span><h4><a href="https://darioamodei.com/machines-of-loving-grace">Dario Amodei — Essays</a><small>darioamodei.com · ex. « Machines of Loving Grace » (oct. 2024)</small></h4><p><span class="lbl">Quoi</span>Essais longs (environ 14 000 mots), sections numérotées, notes de bas de page, mise en page de livre.</p><p class="take"><span class="lbl">On prend</span>Les <b>sections numérotées</b>, les <b>notes en marge</b> et la sobriété typographique. On laisse la longueur : vise 600 à 1 500 mots.</p></div>
+  </div>
+  <p class="note">⚠ Transparence : depuis cet environnement, je n’ai pas pu ouvrir awwwards.com, paulgraham.com ni darioamodei.com (réseau restreint). Les références viennent des résultats de recherche (noms, dates, descriptions officielles). Ce que j’en tire, ce sont des <em>mécanismes</em> généraux, pas une description visuelle vérifiée. Ouvre les 8 liens en 10 minutes et note ce qui te parle : c’est la meilleure validation.</p>
+</div></section>
+
+<!-- 05 -->
+<section class="s" id="systeme"><div class="wrap">
+  <div class="sh"><span class="n">05 — Système</span><div><h2>Papier, encre,<br><em>un signal.</em></h2><p>Une palette tirée de toi : le bleu marine de ta photo, le sable de tes cheveux, et un seul orange vif, utilisé rarement (statut, liens, chiffres clés). La règle : 80 % papier, 15 % encre, 5 % signal.</p></div></div>
+  <div class="grid4">
+    <div class="sw"><div class="c" style="background:#F2EEE6"><span>#F2EEE6</span><span>fond</span></div><div class="d"><b>Papier</b>Fond principal, chaud, jamais blanc pur.</div></div>
+    <div class="sw"><div class="c" style="background:#141413;color:#F2EEE6"><span>#141413</span><span>texte</span></div><div class="d"><b>Encre</b>Texte, filets, boutons.</div></div>
+    <div class="sw"><div class="c" style="background:#FF4F1A"><span>#FF4F1A</span><span>signal</span></div><div class="d"><b>Signal</b>Graphique et grands textes uniquement. Pour du petit texte, utiliser <span class="sig">#B3340A</span>.</div></div>
+    <div class="sw"><div class="c" style="background:#16203A;color:#F2EEE6"><span>#16203A</span><span>nuit</span></div><div class="d"><b>Marine</b>Mode sombre et sections d’accent (contact). Tiré de ta photo.</div></div>
+    <div class="sw"><div class="c" style="background:#6B675E;color:#F2EEE6"><span>#6B675E</span><span>meta</span></div><div class="d"><b>Pierre</b>Métadonnées, dates, légendes.</div></div>
+    <div class="sw"><div class="c" style="background:#D9D3C7"><span>#D9D3C7</span><span>filets</span></div><div class="d"><b>Filet</b>Séparateurs, bordures.</div></div>
+    <div class="sw"><div class="c" style="background:#FBF9F4;border-bottom:1px solid var(--rule)"><span>#FBF9F4</span><span>surface</span></div><div class="d"><b>Papier clair</b>Cartes, encarts.</div></div>
+    <div class="sw"><div class="c" style="background:#C9A77C"><span>#C9A77C</span><span>rare</span></div><div class="d"><b>Sable</b>Illustrations, surlignage d’essai. Optionnel.</div></div>
+  </div>
+  <div class="prop"><div style="flex:80;background:var(--paper)">Papier 80 %</div><div style="flex:15;background:var(--ink);color:var(--paper)">Encre 15 %</div><div style="flex:5;background:var(--signal)">5 %</div></div>
+  <div class="ratio">
+    <div class="ok">Encre / Papier 15,9:1 ✓ AAA</div>
+    <div class="ok">Pierre / Papier 4,9:1 ✓ AA</div>
+    <div class="ok">#B3340A / Papier 5,3:1 ✓ AA</div>
+    <div class="ko">#FF4F1A / Papier 2,8:1 ✗ texte (OK graphique ≥ 3:1 sur encre)</div>
+    <div class="ok">Papier / Marine 13,9:1 ✓ AAA</div>
+    <div class="ok">Signal / Marine 4,9:1 ✓ AA</div>
+  </div>
+
+  <div style="margin-top:72px">
+    <div class="spec">
+      <div class="lab"><span class="mono sig">Display</span><b>Instrument Serif</b><p>Titres et chiffres. Une serif contemporaine, condensée, avec une italique qui porte l’emphase. Gratuite (OFL).</p></div>
+      <div><div class="demo-display">Je trouve des clients.<br><em>Puis je les garde.</em></div>
+        <div class="scale"><span style="font-size:96px">Aa<small>H1 · 96–160</small></span><span style="font-size:64px">Aa<small>H2 · 56–88</small></span><span style="font-size:36px">Aa<small>H3 · 32–40</small></span><span style="font-size:26px">Aa<small>Liste · 24–28</small></span></div>
+      </div>
+    </div>
+    <div class="spec">
+      <div class="lab"><span class="mono sig">Lecture</span><b>Newsreader</b><p>Corps de texte et essais. Variable avec optical size : elle s’affine en grand et s’épaissit en petit. Faite pour l’écran (Production Type, OFL).</p><span class="example" style="margin:10px 0 0">texte d’exemple</span></div>
+      <div class="demo-text"><p class="drop" style="margin:0">Pendant trois ans, j’ai réparé des machines avant de vendre quoi que ce soit. On apprend vite qu’une panne ne se devine pas : elle se diagnostique. On pose des questions, on écarte des hypothèses, on ne remplace pas une pièce parce qu’elle « a l’air » usée. Je vends de la même façon. <em>Le premier rendez-vous n’est pas un pitch, c’est un diagnostic.</em></p></div>
+    </div>
+    <div class="spec">
+      <div class="lab"><span class="mono sig">Données &amp; labels</span><b>Geist Mono</b><p>Dates, temps de lecture, statut, chiffres de preuve, navigation. Apporte le côté « terrain / outil » sans jargon. (Geist en sans pour les boutons.)</p></div>
+      <div class="demo-mono">● DISPONIBLE — ALTERNANCE BD · PARIS<br>12.10.2026 · ESSAI · 7 MIN<br>08 CLIENTS B2B · +12 K€ CA · TOEIC 860<br><span class="muted">TARGET → SIGNAL → CONTACT → QUALIFY → FOLLOW-UP → PIPELINE</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- 06 -->
+<section class="s" id="composants"><div class="wrap">
+  <div class="sh"><span class="n">06 — Signature</span><div><h2>Six détails<br><em>qui font la différence.</em></h2><p>Ce sont ces détails qu’un jury Awwwards remarque. Ce sont aussi eux qui font dire à un recruteur « ce candidat est soigneux ». Survole-les.</p></div></div>
+  <div class="grid3">
+    <div class="comp"><span class="lbl">01 · Pastille de statut, toujours à jour</span>
+      <span class="status"><span class="dot"></span>Disponible · Alternance BD · Paris</span>
+      <span class="mono muted" style="font-size:11px">Mis à jour le 09.11.2026</span>
+      <p style="margin:0;font-size:15px">Une seule source (<code>site.config.ts</code>). Elle apparaît dans le header, le hero, l’image OG et le JSON-LD. Fini les dates périmées.</p></div>
+    <div class="comp"><span class="lbl">02 · Personnalisation <code>?pour=</code> (réflexe BD)</span>
+      <div class="url">clement-dubosq.com/<b>?pour=qonto</b></div>
+      <div class="pour"><span class="mono">Pour Qonto</span><span>Bonjour 👋 Voici pourquoi je postule chez vous, en 3 lignes. <a href="#">Lire →</a></span></div>
+      <p style="margin:0;font-size:15px">Une ligne d’accroche différente pour chaque candidature, tirée d’un fichier. En plus, tu sais qui a ouvert le lien (analytics). C’est ta méthode « Signal → Contact » appliquée à ta recherche.</p></div>
+    <div class="comp"><span class="lbl">03 · Chiffres-preuves</span>
+      <div class="nums"><div><b>8</b><span>clients B2B signés seul</span></div><div><b>+12 k€</b><span>CA en moins d’un an</span></div><div><b>50</b><span>clients suivis · 95 % satisfaits</span></div><div><b>+40 %</b><span>leads qualifiés en 6 mois</span></div></div>
+      <p style="margin:0;font-size:15px">Chaque chiffre renvoie à son contexte (comment, quand, avec qui). Un chiffre sans contexte, un recruteur s’en méfie.</p></div>
+    <div class="comp"><span class="lbl">04 · Index d’essais (survol)</span>
+      <div>
+        <div class="erow"><span class="d">10.2026</span><span class="t">Le premier rendez-vous est un diagnostic</span><span class="r">7 min</span><span class="x">Ce que trois ans de maintenance industrielle m’ont appris sur la vente.</span></div>
+        <div class="erow"><span class="d">09.2026</span><span class="t">Ce que 8 clients m’ont appris sur la relance</span><span class="r">5 min</span><span class="x">La relance n’est pas une insistance, c’est une mémoire.</span></div>
+      </div>
+      <p style="margin:0;font-size:15px">Inspiré de Paul Graham : une liste nue. Le survol révèle le chapô. Aucune image n’est nécessaire.</p></div>
+    <div class="comp"><span class="lbl">05 · Note en marge (essais)</span>
+      <div class="sn">On ne relance pas « pour faire le point ». On relance avec une information nouvelle<sup>2</sup>.
+        <aside><b class="sig">2</b> Un article qu’ils ont publié, un recrutement ouvert, un chiffre de leur secteur. Sinon, on attend.</aside></div>
+      <p style="margin:0;font-size:15px">Inspiré de Dario Amodei : les notes de bas de page passent dans la marge sur desktop, et en dessous du paragraphe sur mobile.</p></div>
+    <div class="comp"><span class="lbl">06 · Liens &amp; boutons</span>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="#">M’écrire <span class="arr">→</span></a><a class="btn ghost" href="#">CV · PDF <span class="arr">↓</span></a></div>
+      <p class="lnk" style="margin:0">Un lien dans le texte est <a href="#">souligné en orange</a>, puis il change de couleur au survol.</p>
+      <p style="margin:0;font-size:15px">Deux actions, jamais plus. La principale, c’est toujours « M’écrire ».</p></div>
+  </div>
+</div></section>
+
+<!-- 07 -->
+<section class="s" id="maquettes"><div class="wrap">
+  <div class="sh"><span class="n">07 — Maquettes</span><div><h2>À quoi ça<br><em>ressemble.</em></h2><p>Ce sont des maquettes de direction, pas des pages finales. Les textes servent d’exemples : à toi de les réécrire avec tes mots.</p></div></div>
+
+  <div class="mk-label mono"><span>Accueil — desktop 1440</span><span class="muted">Premier écran : les 6 réponses du test des 5 secondes</span></div>
+  <div class="frame">
+    <div class="bar"><i></i><i></i><i></i><span class="u">clement-dubosq.com</span></div>
+    <div class="home">
+      <nav><span class="nm">Clément Dubosq</span><span class="links"><span>Travaux</span><span>Essais</span><span>À propos</span><span>CV</span></span><span class="status" style="font-size:11px;padding:5px 12px 5px 9px"><span class="dot"></span>Disponible</span></nav>
+      <div class="hero">
+        <div>
+          <span class="mono muted">Business Developer · Alternance B2B · Paris</span>
+          <h2><span class="ln"><span>Je trouve des clients.</span></span><span class="ln"><span><em>Puis je les garde.</em></span></span></h2>
+          <p class="sub">Fondateur de WebVision : 8 clients B2B signés seul et +12 k€ de CA en moins d’un an. Je cherche une équipe sales exigeante pour mon alternance en Bachelor Marketing, Commerce &amp; Négociation.</p>
+          <div class="ctas"><a class="btn" href="#">M’écrire <span class="arr">→</span></a><a class="btn ghost" href="#">CV · PDF <span class="arr">↓</span></a></div>
+        </div>
+        <figure><img src="{{photo.jpg}}" alt="Portrait de Clément Dubosq"><figcaption><span>Clément Dubosq</span><span>Paris · 2026</span></figcaption></figure>
+      </div>
+      <div class="proofrow">
+        <div><b>8</b><span>clients B2B signés (WebVision)</span></div>
+        <div><b>+12 k€</b><span>de CA généré en moins d’un an</span></div>
+        <div><b>95 %</b><span>de satisfaction sur 50 clients suivis</span></div>
+        <div><b>860</b><span>au TOEIC, anglais pro</span></div>
+      </div>
+      <div class="marq"><div>SaaS B2B <i>●</i> ESN &amp; conseil tech <i>●</i> Fintech <i>●</i> Mobilité premium <i>●</i> Sport business <i>●</i> SaaS B2B <i>●</i> ESN &amp; conseil tech <i>●</i> Fintech <i>●</i> Mobilité premium <i>●</i> Sport business <i>●</i>&nbsp;</div></div>
+    </div>
+  </div>
+
+  <div class="mk-label mono" style="margin-top:56px"><span>Mobile — là où Camille te découvre</span><span class="muted">Aperçu LinkedIn → premier écran → essai</span></div>
+  <div class="phones">
+    <div class="phone"><div class="og">
+      <div style="display:flex;gap:8px;align-items:center"><div style="width:34px;height:34px;border-radius:50%;background:#ddd;overflow:hidden"><img src="{{photo.jpg}}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:50% 20%"></div><div><b>Clément Dubosq</b><div style="color:#666;font-size:11px">Business Developer · Alternance</div></div></div>
+      <p style="margin:12px 0 0;line-height:1.45">J’ai écrit sur ce que 3 ans de maintenance industrielle m’ont appris sur la vente. Spoiler : le premier rendez-vous n’est pas un pitch.</p>
+      <div class="li-post"><div class="ogimg"><span class="mono" style="font-size:9px">Essai · 7 min</span><div class="t" style="max-width:62%">Le premier rendez-vous est <em>un diagnostic</em></div><span class="mono" style="font-size:9px">clement-dubosq.com</span><img src="{{photo.jpg}}" alt=""></div><div class="cap"><b>Le premier rendez-vous est un diagnostic</b>clement-dubosq.com</div></div>
+      <p class="mono" style="color:#999;font-size:10px;margin-top:12px">Image OG générée automatiquement (next/og) pour chaque page et chaque essai</p><div style="display:flex;gap:18px;color:#666;font-size:12px;border-top:1px solid #eee;margin-top:14px;padding-top:10px"><span>👍 J’aime</span><span>💬 Commenter</span><span>↗ Partager</span></div><p style="margin:16px 0 0;font-size:12px;color:#666;line-height:1.5">Aujourd’hui, ce même lien affiche… <b style="color:#B3340A">un cadre vide</b> (og-image.png = 1 octet).</p>
+    </div></div>
+    <div class="phone"><div class="scr"><div class="m-in">
+      <div class="nm"><span>Clément Dubosq</span><span>☰</span></div>
+      <span class="status"><span class="dot"></span>Disponible · Alternance BD · Paris</span>
+      <h2>Je trouve des clients. <em>Puis je les garde.</em></h2>
+      <p>Fondateur de WebVision : 8 clients B2B, +12 k€ de CA. Bachelor MCN, IPAC.</p>
+      <div class="ctas"><a class="btn" href="#">M’écrire →</a><a class="btn ghost" href="#">CV ↓</a></div>
+      <div class="m-photo"><img src="{{photo.jpg}}" alt=""></div>
+      <div class="mini"><div><b>8</b><span>clients B2B</span></div><div><b>+12 k€</b><span>CA généré</span></div></div>
+    </div></div></div>
+    <div class="phone"><div class="scr"><div class="m-in">
+      <div class="nm"><span>← Essais</span><span class="mono" style="font-size:10px">7 min</span></div>
+      <div style="height:2px;background:var(--rule);margin-top:10px"><div style="width:30%;height:100%;background:var(--signal)"></div></div>
+      <span class="mono muted" style="display:block;margin-top:16px;font-size:10px">12.10.2026 · ESSAI</span>
+      <h2 style="font-size:38px">Le premier rendez-vous est un diagnostic</h2>
+      <p style="font-style:italic">Ce que trois ans de maintenance industrielle m’ont appris sur la vente.</p>
+      <p style="font-size:15.5px;line-height:1.6;color:var(--ink)">Pendant trois ans, j’ai réparé des machines avant de vendre quoi que ce soit. On apprend vite qu’une panne ne se devine pas<sup class="sig" style="font:10px var(--mono)">1</sup>&nbsp;: elle se diagnostique.</p>
+      <p style="font-size:12.5px;line-height:1.45;color:var(--stone);border-left:1px solid var(--signal);padding-left:8px">1 — Bac pro MEI, Institut Lemonnier, mention Bien.</p><p style="font-size:15.5px;line-height:1.6;color:var(--ink)">On pose des questions, on écarte des hypothèses. Je vends de la même façon.</p>
+    </div></div></div>
+  </div>
+
+  <div class="mk-label mono" style="margin-top:56px"><span>/essais — l’index</span><span class="muted">Paul Graham pour la sobriété, Dario Amodei pour la typographie</span></div>
+  <div class="frame">
+    <div class="bar"><i></i><i></i><i></i><span class="u">clement-dubosq.com/essais</span></div>
+    <div class="eindex">
+      <div>
+        <h2>Essais</h2>
+        <p class="intro">Notes de terrain sur la vente, la prospection et l’apprentissage. J’écris pour penser plus clairement. Un essai par mois, environ.</p>
+        <div class="sub"><span class="mono muted">S’abonner</span><a class="btn ghost" href="#" style="width:max-content">Recevoir le prochain par mail →</a><span class="mono muted" style="font-size:11px">ou flux RSS</span></div>
+      </div>
+      <div>
+        <div class="yr"><span>2026</span><span>3 essais</span></div>
+        <div class="erow"><span class="d">12.10</span><span class="t">Le premier rendez-vous est un diagnostic</span><span class="r">7 min</span><span class="x">Ce que trois ans de maintenance industrielle m’ont appris sur la vente.</span></div>
+        <div class="erow"><span class="d">14.09</span><span class="t">Ce que 8 clients m’ont appris sur la relance</span><span class="r">5 min</span><span class="x">La relance n’est pas de l’insistance, c’est de la mémoire.</span></div>
+        <div class="erow"><span class="d">02.09</span><span class="t">Pourquoi j’écris des messages de moins de 80 mots</span><span class="r">4 min</span><span class="x">Ce que j’ai retiré de mes messages de prospection, et ce que ça a changé.</span></div>
+        <div class="yr"><span>2025</span><span>1 essai</span></div>
+        <div class="erow"><span class="d">11.12</span><span class="t">Vendre une vidéo à quelqu’un qui n’en voulait pas</span><span class="r">6 min</span><span class="x">Le premier client de WebVision, et l’objection que je n’avais pas vue venir.</span></div>
+        <p class="mono muted" style="font-size:11px;margin-top:18px">Titres d’exemple <span class="example">à écrire</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mk-label mono" style="margin-top:56px"><span>/essais/[slug] — la page de lecture</span><span class="muted">Sommaire sticky · colonne de 640 px · notes en marge · progression</span></div>
+  <div class="frame">
+    <div class="bar"><i></i><i></i><i></i><span class="u">clement-dubosq.com/essais/premier-rendez-vous-diagnostic</span></div>
+    <div class="essay">
+      <nav class="tocm"><span class="mono">Sommaire</span><div class="prog"><span></span></div><a href="#">1. L’atelier</a><a class="on" href="#">2. Diagnostiquer</a><a href="#">3. Ce que ça change</a><a href="#">4. Ce que je ferais chez vous</a></nav>
+      <article>
+        <header><span class="k">12 octobre 2026 · Essai · 7 min <span class="example">texte d’exemple</span></span><h2>Le premier rendez-vous est un diagnostic</h2><p class="dek">Ce que trois ans de maintenance industrielle m’ont appris sur la vente.</p></header>
+        <div class="art">
+          <h3><span>1</span>L’atelier</h3>
+          <p>Pendant trois ans, j’ai réparé des machines avant de vendre quoi que ce soit<sup>1</sup>. On apprend vite qu’une panne ne se devine pas : elle se diagnostique. On pose des questions, on écarte des hypothèses, et on ne remplace pas une pièce parce qu’elle « a l’air » usée.</p>
+          <h3><span>2</span>Diagnostiquer avant de proposer</h3>
+          <p>Quand j’ai lancé WebVision, j’ai fait l’inverse. J’arrivais avec une offre et je cherchais quelqu’un à qui la coller. Les trois premiers rendez-vous n’ont rien donné<sup>2</sup>.</p>
+          <blockquote>Le client ne m’achète pas une vidéo. Il m’achète la fin d’un problème.</blockquote>
+          <p>Le quatrième, j’ai posé des questions pendant quarante minutes, sans montrer une seule réalisation…</p>
+        </div>
+        <div class="end"><div><span class="mono">Essai suivant</span><div class="t">Ce que 8 clients m’ont appris sur la relance →</div></div><div><span class="mono">Vous recrutez ?</span><div class="t">Parlons-en 15 minutes. <a href="#">M’écrire</a></div></div></div>
+      </article>
+      <aside class="side"><div class="fn" style="margin-top:250px"><b>1</b>Bac pro Maintenance des Équipements Industriels, Institut Lemonnier, mention Bien.</div><div class="fn"><b>2</b>Avec le recul, j’avais parlé 80 % du temps. La règle aujourd’hui : l’inverse.</div></aside>
+    </div>
+  </div>
+</div></section>
+
+<!-- 08 -->
+<section class="s" id="motion"><div class="wrap">
+  <div class="sh"><span class="n">08 — Mouvement</span><div><h2>Visible d’abord.<br><em>Animé ensuite.</em></h2><p>La règle n°1, c’est que tout le contenu est lisible sans JavaScript. L’animation vient en plus, elle ne conditionne jamais l’affichage. On utilise le CSS natif (scroll-driven animations, View Transitions) et GSAP seulement si nécessaire.</p></div></div>
+  <div class="motion">
+    <div class="mo"><div class="stage"><div class="st-rise"><span>Je trouve des clients.</span></div></div><h4>Révélation du titre, ligne par ligne</h4><p>Une seule fois, au chargement. Le texte est déjà dans le HTML ; seul le masque est animé.</p><span class="dur">700 ms · cubic-bezier(.2,.7,.1,1)</span></div>
+    <div class="mo"><div class="stage"><div class="st-count">+12 k€</div></div><h4>Compteurs de preuve</h4><p>Ils comptent une seule fois en entrant dans l’écran. La valeur finale est dans le HTML, pour le SEO et les lecteurs d’écran.</p><span class="dur">900 ms · ease-out · 1×</span></div>
+    <div class="mo"><div class="stage"><div class="st-hover"><div class="erow"><span class="d">10.26</span><span class="t" style="font-size:20px">Le premier rendez-vous…</span><span class="r">7 min</span></div></div></div><h4>Survol de l’index</h4><p>La ligne glisse de 10 px, le titre passe en signal et le chapô se déplie. C’est tout.</p><span class="dur">250 ms · ease</span></div>
+    <div class="mo"><div class="stage"><div class="st-vt"><div>Titre</div><span class="mono">→</span><div>Titre</div></div></div><h4>Transition index → essai</h4><p>View Transitions API : le titre de la liste devient le H1 de l’essai. C’est natif et léger.</p><span class="dur">400 ms · CSS natif</span></div>
+    <div class="mo"><div class="stage"><div class="st-under"><span>un lien souligné</span></div></div><h4>Soulignement des liens</h4><p>Le trait orange se dessine de gauche à droite au survol.</p><span class="dur">300 ms</span></div>
+    <div class="mo"><div class="stage"><div class="st-no">✗ smooth-scroll détourné<br>✗ curseur custom<br>✗ preloader<br>✗ contenu à opacity:0</div></div><h4>Ce qu’on interdit</h4><p>Tout ce qui fait attendre Camille ou casse le scroll natif sur mobile.</p><span class="dur">prefers-reduced-motion respecté</span></div>
+  </div>
+</div></section>
+
+<!-- 09 -->
+<section class="s" id="archi"><div class="wrap">
+  <div class="sh"><span class="n">09 — Architecture</span><div><h2>Cinq pages.<br><em>Pas une de plus.</em></h2><p>L’accueil reste une page qu’on scanne en 60 secondes. Le reste sert à ceux qui creusent : Thomas, Sarah, et Google.</p></div></div>
+  <div class="map">
+    <div class="col"><h4>Accueil</h4><div class="p">/ · Camille, 60 s</div><ol><li>Hero + statut + photo</li><li>4 chiffres-preuves</li><li>Parcours (3 lignes)</li><li>Étude de cas WebVision</li><li>Méthode (6 étapes)</li><li>3 derniers essais</li><li>Contact</li></ol></div>
+    <div class="col"><h4>Travaux</h4><div class="p">/travaux/[slug] · Thomas</div><ol><li>WebVision : comment j’ai signé 8 clients</li><li>Atlas Avocat : 50 clients, +40 % de leads</li><li>Wav’Arts : +20 % d’adhérents en 3 mois</li></ol></div>
+    <div class="col"><h4>Essais</h4><div class="p">/essais · Thomas, Sarah</div><ol><li>Index sobre par année</li><li>Page de lecture</li><li>RSS + newsletter (optionnel)</li><li>Image OG par essai</li></ol></div>
+    <div class="col"><h4>À propos</h4><div class="p">/a-propos · Sarah</div><ol><li>Le parcours atypique : bac pro MEI → fondateur → BD</li><li>Ce que je cherche / ce que j’apporte</li><li>Bloc « Maintenant » daté</li><li>Hors travail : sport, auto, surf</li></ol></div>
+    <div class="col"><h4>CV</h4><div class="p">/cv · tout le monde</div><ol><li>CV en HTML, imprimable</li><li>PDF téléchargeable</li><li>Même source de données que le site</li><li><code>?pour=</code> sur toutes les pages</li></ol></div>
+  </div>
+  <div class="order">
+    <div class="row"><span class="i">01</span><b>Hero</b><p>Nom, phrase-promesse, pastille de statut, photo, M’écrire / CV. C’est le test des 5 secondes.</p><span class="t">0–5 s</span></div>
+    <div class="row"><span class="i">02</span><b>Preuves</b><p>4 chiffres en Instrument Serif, une ligne de contexte chacun, lien vers l’étude de cas.</p><span class="t">5–15 s</span></div>
+    <div class="row"><span class="i">03</span><b>Parcours</b><p>Une timeline compacte : WebVision, Wav’Arts, Atlas Avocat, IPAC. Le résultat d’abord, la tâche ensuite.</p><span class="t">15–30 s</span></div>
+    <div class="row"><span class="i">04</span><b>Étude de cas</b><p>WebVision raconté comme un deal : cible → signal → contact → closing → fidélisation. Scrollytelling léger.</p><span class="t">30–90 s</span></div>
+    <div class="row"><span class="i">05</span><b>Méthode</b><p>Les 6 étapes du site actuel, en tableau sobre. On garde le fond et on retire la 3D.</p><span class="t">optionnel</span></div>
+    <div class="row"><span class="i">06</span><b>Essais</b><p>Les 3 derniers, au format index. C’est la porte vers ta façon de penser.</p><span class="t">optionnel</span></div>
+    <div class="row"><span class="i">07</span><b>Contact</b><p>Fond marine. « Prenons 15 minutes. » Mail, LinkedIn, CV, Calendly éventuellement.</p><span class="t">action</span></div>
+  </div>
+</div></section>
+
+<!-- 10 -->
+<section class="s" id="essais"><div class="wrap">
+  <div class="sh"><span class="n">10 — Essais</span><div><h2>Écrire pour<br><em>penser clair.</em></h2><p>C’est l’élément le plus différenciant du site, et aussi le plus risqué. Un essai bien écrit prouve que tu sais construire un argument, et donc écrire un message de prospection. Un essai creux ou visiblement généré par IA fait l’effet inverse.</p></div></div>
+  <div class="compare">
+    <div>
+      <span class="mono sig">Modèle 1</span><h3>Paul Graham</h3>
+      <p style="font-size:16.5px;margin:6px 0 0">Courts à moyens. Une idée par essai. Des phrases simples et un ton parlé. Il part d’une question concrète et va jusqu’à une conclusion surprenante. Un index nu.</p>
+      <div class="pg">
+        <a href="#">Le premier rendez-vous est un diagnostic</a><br><br><a href="#">Ce que 8 clients m’ont appris sur la relance</a><br><br><a href="#">Pourquoi j’écris des messages de moins de 80 mots</a><br><br><a href="#">Vendre une vidéo à quelqu’un qui n’en voulait pas</a>
+      </div>
+      <p class="mono muted" style="font-size:11px;margin-top:8px">Évocation du style, pas une copie de son site</p>
+    </div>
+    <div>
+      <span class="mono sig">Modèle 2</span><h3>Dario Amodei</h3>
+      <p style="font-size:16.5px;margin:6px 0 0">Longs et structurés. Sections numérotées, notes de bas de page, nuances explicites (« je peux me tromper sur… »). Il prend position sur l’avenir de son domaine.</p>
+      <div class="da"><p class="h">L’IA va-t-elle remplacer les SDR ?</p><p><b>1. Ce qui va disparaître</b><br>La partie volume de la prospection : listes, séquences génériques, premiers messages…<sup style="color:var(--signal-text)">1</sup></p><p><b>2. Ce qui va prendre de la valeur</b><br>Le diagnostic, la confiance, la mémoire de la relation…</p></div>
+      <p class="mono muted" style="font-size:11px;margin-top:8px">Évocation du style, pas une copie de son site</p>
+    </div>
+  </div>
+  <p style="font-size:19px;max-width:66ch;margin:28px 0 0"><b>Le format pour toi :</b> la structure de Dario (sections numérotées, notes en marge, une position claire) avec la longueur et la simplicité de Paul Graham (600 à 1 500 mots, une seule idée, des phrases courtes), le tout nourri par <em>ton terrain</em>. Personne d’autre que toi ne peut écrire ces essais-là.</p>
+
+  <div class="topics">
+    <div class="topic"><b>Le premier rendez-vous est un diagnostic</b><p>Bac pro maintenance industrielle → vente. C’est ton angle le plus unique : personne d’autre ne l’a.</p><span class="w">Thomas · Sarah</span></div>
+    <div class="topic"><b>Ce que 8 clients m’ont appris sur la relance</b><p>Tes vraies relances WebVision : ce qui a marché, ce qui a raté, avec des chiffres.</p><span class="w">Thomas</span></div>
+    <div class="topic"><b>Pourquoi j’écris des messages de moins de 80 mots</b><p>Des avant/après de tes messages de prospection. C’est le plus « actionnable » pour un Head of Sales.</p><span class="w">Thomas</span></div>
+    <div class="topic"><b>Vendre une vidéo à quelqu’un qui n’en voulait pas</b><p>Le récit d’un deal : objection, retournement, closing. Sous forme d’histoire.</p><span class="w">Sarah</span></div>
+    <div class="topic"><b>Ce qu’un cabinet d’avocats m’a appris sur la confiance</b><p>Atlas Avocat : confidentialité, précision, 50 clients, 95 % de satisfaction.</p><span class="w">Camille · Thomas</span></div>
+    <div class="topic"><b>Le CRM n’est pas un outil, c’est une mémoire</b><p>Ta méthode « Follow-up / Pipeline » transformée en opinion argumentée.</p><span class="w">Thomas</span></div>
+    <div class="topic"><b>L’IA va-t-elle remplacer les SDR ?</b><p>Le format Dario : une prise de position nuancée, sur un sujet d’actualité pour tous les sales managers.</p><span class="w">Sarah · Thomas</span></div>
+    <div class="topic"><b>Pourquoi je veux apprendre la vente en startup</b><p>Ta motivation, argumentée. Ça remplace avantageusement une lettre de motivation.</p><span class="w">Sarah</span></div>
+    <div class="topic"><b>Ce que la course à pied m’apprend sur le pipeline</b><p>Régularité, volume, patience. Plus léger, c’est l’essai « humain ».</p><span class="w">tous</span></div>
+  </div>
+
+  <div class="rules">
+    <div><b>Écris-les toi-même</b><p>L’IA peut relire et contredire, mais pas écrire. Un recruteur repère vite un texte lisse : c’est éliminatoire pour un poste où tu vas écrire toute la journée.</p></div>
+    <div><b>3 au lancement</b><p>Trois bons essais valent mieux que dix moyens. Ensuite, un par mois. Un index vide ou abandonné envoie un mauvais signal : mieux vaut ne pas lancer la section.</p></div>
+    <div><b>Du vécu, pas des généralités</b><p>Chaque essai part d’une scène réelle (un client, un appel, un chiffre). Aucun conseil générique « 5 astuces pour… ».</p></div>
+    <div><b>Fin = proposition</b><p>Chaque essai se termine par ce que tu ferais concrètement dans une équipe sales. C’est le pont vers l’entretien.</p></div>
+  </div>
+
+  <div class="template"><span class="c"># content/essais/premier-rendez-vous-diagnostic.mdx</span>
+---
+<span class="o">title:</span> "Le premier rendez-vous est un diagnostic"
+<span class="o">dek:</span> "Ce que trois ans de maintenance industrielle m’ont appris sur la vente."
+<span class="o">date:</span> 2026-10-12
+<span class="o">updated:</span> 2026-10-20        <span class="c"># affiché si présent : montre que tu entretiens</span>
+<span class="o">status:</span> published         <span class="c"># draft | published</span>
+---
+
+<span class="c">## 1. La scène        → une situation réelle, datée, chiffrée</span>
+<span class="c">## 2. L’idée          → la thèse en une phrase, assumée</span>
+<span class="c">## 3. Ce qui la nuance → où tu pourrais te tromper (à la Dario)</span>
+<span class="c">## 4. Ce que j’en fais → appliqué à une équipe sales, demain matin</span>
+
+Texte… avec une note&lt;Note&gt;Source, contexte ou aparté.&lt;/Note&gt;</div>
+</div></section>
+
+<!-- 11 -->
+<section class="s" id="plan"><div class="wrap">
+  <div class="sh"><span class="n">11 — Plan &amp; stack</span><div><h2>Repartir de zéro,<br><em>proprement.</em></h2><p>Même dépôt, même domaine, nouvelle base. On supprime three.js et l’essentiel de GSAP. Objectif : moins de 80 ko de JS sur l’accueil, LCP sous 1,5 s en 4G, score Lighthouse de 95 ou plus partout.</p></div></div>
+  <div class="phase"><span class="mono">Phase 0 · 1 jour</span><h4>Urgences sur le site actuel</h4><ul><li>Corriger la date « septembre 2026 » et le titre tronqué</li><li>Remplacer <code>og-image.png</code> (1 octet)</li><li>Aligner le CV et le site (W hub, Wav’Arts, intitulé du Bachelor, téléphone)</li></ul></div>
+  <div class="phase"><span class="mono">Phase 1 · 2–3 j</span><h4>Contenu d’abord</h4><ul><li>Écrire : phrase-promesse, bio de 3 lignes, 4 chiffres avec leur contexte</li><li>Étude de cas WebVision (500 mots)</li><li>Premier jet des 3 essais de lancement</li></ul><ul><li>Faire une vraie photo (lumière naturelle, fond neutre, plan poitrine)</li><li>Créer une adresse pro : contact@clement-dubosq.com</li></ul></div>
+  <div class="phase"><span class="mono">Phase 2 · 3–4 j</span><h4>Build</h4><ul><li>Next.js 16 (App Router) + TypeScript + Tailwind 4 (déjà en place)</li><li>Essais en MDX (<code>content/essais/*.mdx</code>), composant <code>&lt;Note&gt;</code> pour les notes en marge</li><li><code>site.config.ts</code> : une source unique pour statut, dates, chiffres et liens</li></ul><ul><li><code>next/og</code> : image OG dynamique par page et par essai</li><li>RSS <code>/feed.xml</code>, sitemap, JSON-LD (Person + Article)</li><li>Polices auto-hébergées via <code>next/font</code></li></ul></div>
+  <div class="phase"><span class="mono">Phase 3 · 1–2 j</span><h4>Signature &amp; mesure</h4><ul><li><code>?pour=entreprise</code> : accroches tirées de <code>content/pour.json</code></li><li>Analytics respectueux (Vercel Analytics ou Plausible) : visites par <code>?pour=</code></li><li>Mode sombre marine</li></ul><ul><li>Tests : Lighthouse, mobile réel, VoiceOver, aperçus LinkedIn (Post Inspector)</li><li>Test avec 3 vrais recruteurs : « Qu’as-tu retenu en 10 s ? »</li></ul></div>
+  <div class="phase"><span class="mono">Ensuite</span><h4>Faire vivre</h4><ul><li>1 essai par mois, partagé sur LinkedIn (c’est ta prospection inbound)</li><li>Mettre à jour la pastille de statut à chaque changement</li></ul><ul><li>Version anglaise <code>/en</code> si tu vises des startups internationales (TOEIC 860)</li><li>Candidature éventuelle à Awwwards ou CSSDA une fois le site stable</li></ul></div>
+</div></section>
+
+<!-- 12 -->
+<section class="s" id="questions"><div class="wrap">
+  <div class="sh"><span class="n">12 — À trancher</span><div><h2>Ce que je ne peux pas<br><em>décider à ta place.</em></h2><p>J’ai pris des hypothèses par défaut pour avancer. Ces réponses peuvent changer la direction.</p></div></div>
+  <ol class="qs">
+    <li><div>Où en est ta recherche d’alternance aujourd’hui (nov. 2026) ? Encore en recherche, déjà en poste, ou pour la rentrée 2027 ?<small>Par défaut, j’ai supposé que tu étais encore en recherche. Si tu es déjà en poste, le site devient « marque personnelle » : on garde les essais et les travaux, et le statut indique « En alternance chez X ».</small></div></li>
+    <li><div>Quel rythme d’alternance, et à quelle date de début ?<small>C’est la question que Camille se pose en premier.</small></div></li>
+    <li><div>Paris : tu y es déjà, ou tu déménages (IPAC Caen / Tourville-sur-Odon sur le CV) ?<small>Un recruteur va le remarquer. Mieux vaut l’expliquer en une ligne que le laisser deviner.</small></div></li>
+    <li><div>W hub : quelle expérience exactement (dates, rôle) ? Elle figure sur le site mais pas sur le CV.</div></li>
+    <li><div>Les chiffres (+40 % de leads, 95 % de satisfaction, -25 % de temps de traitement) : peux-tu expliquer chacun en entretien ?<small>Ne mets en avant que ceux que tu peux raconter en détail. Les autres, retire-les.</small></div></li>
+    <li><div>La photo actuelle : est-ce une vraie photo non retouchée ?<small>Si elle a été générée ou très retouchée par IA, remplace-la par une vraie : un recruteur qui te rencontre doit te reconnaître.</small></div></li>
+    <li><div>Veux-tu que je commence le build de la v2 dès maintenant, dans la direction « Terrain » ?</div></li>
+  </ol>
+</div></section>
+
+<footer><div class="wrap">
+  <p class="mono muted" style="margin:0 0 18px">Fin du moodboard · clement-dubosq.com v2 · novembre 2026</p>
+  <p class="big">Prenons<br><em>15 minutes.</em></p>
+</div></footer>
+</body>
+</html>
