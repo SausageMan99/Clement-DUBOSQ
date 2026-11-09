@@ -1,0 +1,7 @@
+# Captures d'écran de sites tiers (références) : usage interne, non versionnées
+img/ruthi-*
+img/eff-*
+img/lando-*
+img/mine-v1.jpg
+# Fichier compilé : il embarque ces captures
+moodboard-v2.html
